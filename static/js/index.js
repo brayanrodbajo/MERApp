@@ -142,13 +142,24 @@ function setHotels(cityChecked){
 	}
 }
 
-$('#days').on('input', function() {
-    currentDays = parseInt($(this).val());
+var slider = document.getElementById("days");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+slider.oninput = function() {
+    output.innerHTML = this.value;
+    currentDays = parseInt(this.value);
     writeTotal();
-});
+    changeStep();
+}
+
+function changeStep() {
+    var x = Math.floor((Math.random() * 5) + 1);
+    document.getElementById("days").step = x.toString();
+}
 
 $('#food').on('input', function() {
     foodValue = parseInt($(this).val());
     writeTotal();
 });
+
 
