@@ -21,20 +21,24 @@ def summary():
                	"image": "/static/images/cartagena.jpg",
                	"costo": 500000,
                 "hotels":[{
+                            "id": "hcb1",
                             "image": "/static/images/cartagena/hotels/hotelpirata.jpg",
                             "name": "Hotel Isla del Pirata",
                             "costo": 1221910
                         }, {
+                            "id": "hcb2",
                             "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
                             "name": "Apartamentos Morros Cartagena",
                             "costo": 452128
                         }, {
-                           "image": "/static/images/cartagena/hotels/hotelpirata.jpg",
-                           "name": "Hotel Isla del Pirata",
+                            "id": "hcb3",
+                           "image": "/static/images/cartagena/hotels/hotelmakondo.jpeg",
+                           "name": "Hotel Makondo",
                            "costo": 1221910
                         }, {
-                            "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
-                            "name": "Apartamentos Morros Cartagena",
+                            "id": "hcb4",
+                            "image": "/static/images/cartagena/hotels/casanadiasandro.jpg",
+                            "name": "Hotel Casa Nadia & Sandro",
                             "costo": 452128
                         }
                     ],
@@ -42,21 +46,25 @@ def summary():
             {
                 "name":"Pavas",
                 "department": "Valle del Cauca",
-                "image": "/static/images/ranchoclaro.jpg",
+                "image": "/static/images/pavas.jpg",
                 "costo": 20000,
                 "hotels":[{
+                            "id": "hcb5",
                             "image": "/static/images/cartagena/hotels/hotelpirata.jpg",
                             "name": "Hotel Isla del Pirata",
                             "costo": 1221910
                         }, {
+                            "id": "hcb6",
                             "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
                             "name": "Apartamentos Morros Cartagena",
                             "costo": 452128
                         }, {
+                            "id": "hcb7",
                            "image": "/static/images/cartagena/hotels/hotelpirata.jpg",
                            "name": "Hotel Isla del Pirata",
                            "costo": 1221910
                         }, {
+                            "id": "hcb8",
                             "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
                             "name": "Apartamentos Morros Cartagena",
                             "costo": 452128
@@ -67,23 +75,27 @@ def summary():
                 "name":"Honda",
                 "department": "Tolima",
                 "image": "/static/images/honda.jpg",
-                "costo": 20000,
+                "costo": 100000,
                 "hotels":[{
-                            "image": "/static/images/cartagena/hotels/hotelpirata.jpg",
-                            "name": "Hotel Isla del Pirata",
-                            "costo": 1221910
+                            "id": "hcb9",
+                            "image": "/static/images/cartagena/hotels/elvirreyhotel.jpg",
+                            "name": "El Virrey Hotel Boutique",
+                            "costo": 100555
                         }, {
-                            "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
-                            "name": "Apartamentos Morros Cartagena",
-                            "costo": 452128
+                            "id": "hcb10",
+                            "image": "/static/images/cartagena/hotels/hotelacuaticoaguasol.jpg",
+                            "name": "Hotel y Parque Acuatico Agua Sol Alegría",
+                            "costo": 148000
                         }, {
-                           "image": "/static/images/cartagena/hotels/hotelpirata.jpg",
-                           "name": "Hotel Isla del Pirata",
-                           "costo": 1221910
+                            "id": "hcb11",
+                           "image": "/static/images/cartagena/hotels/lapiragua.jpg",
+                           "name": "Hotel la Piragua",
+                           "costo": 50000
                         }, {
-                            "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
-                            "name": "Apartamentos Morros Cartagena",
-                            "costo": 452128
+                            "id": "hcb12",
+                            "image": "/static/images/cartagena/hotels/hotellaspiscinas.jpg",
+                            "name": "Hotel Las Piscinas",
+                            "costo": 125000
                         }
                     ],
             },
@@ -92,23 +104,27 @@ def summary():
                 "name":"Medellín",
                 "department": "Antioquia",
                 "image": "/static/images/medellin.jpg",
-                "costo": 20000,
+                "costo": 200000,
                 "hotels":[{
-                            "image": "/static/images/cartagena/hotels/hotelpirata.jpg",
-                            "name": "Hotel Isla del Pirata",
-                            "costo": 1221910
+                            "id": "hcb13",
+                            "image": "/static/images/cartagena/hotels/hotelcasaprado.jpg",
+                            "name": "Hostal Casa Prado",
+                            "costo": 25000
                         }, {
-                            "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
-                            "name": "Apartamentos Morros Cartagena",
-                            "costo": 452128
+                            "id": "hcb14",
+                            "image": "/static/images/cartagena/hotels/lacampanahotel.jpg",
+                            "name": "La Campana Hotel Boutique",
+                            "costo": 157475
                         }, {
-                           "image": "/static/images/cartagena/hotels/hotelpirata.jpg",
-                           "name": "Hotel Isla del Pirata",
-                           "costo": 1221910
+                            "id": "hcb15",
+                           "image": "/static/images/cartagena/hotels/thecharleelifestyle.jpg",
+                           "name": "The Charlee Lifestyle",
+                           "costo": 579223
                         }, {
-                            "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
-                            "name": "Apartamentos Morros Cartagena",
-                            "costo": 452128
+                            "id": "hcb16",
+                            "image": "/static/images/cartagena/hotels/estelarblue.jpg",
+                            "name": "Hotel Estelar Blue",
+                            "costo": 226950
                         }
                     ],
             },

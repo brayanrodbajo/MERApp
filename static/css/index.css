@@ -73,14 +73,13 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-
+/***checkbox**/
 label {
   border: 1px solid #fff;
   padding: 10px;
   display: block;
   position: relative;
   margin: 10px;
-  cursor: pointer;
   text-align: center;
 }
 
@@ -111,8 +110,13 @@ label img {
   z-index: -1;
 }
 
-label img:hover {
-  opacity: 1;
+input:disabled + label{
+    opacity: 0.3;
+}
+
+input:enabled + label  img:hover {
+    opacity: 1;
+    cursor: pointer;
 }
 
 :checked + label:before {

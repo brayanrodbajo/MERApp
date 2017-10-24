@@ -25,8 +25,8 @@ function setHotels(){
     for(var i=0; i< data.length; i++) {
         for (var j = 0; j < data[i]["hotels"].length; j++) {
             count++;
-            $("#grouphotels ul").append('<li><input class="hotel" type="checkbox" id="hcb'+count.toString()+'" name="fooby[2][]" />' +
-                '            <label for="hcb'+count.toString()+'">'+'<img src='+data[i]["hotels"][j]["image"]+'/><br>'+data[i]["hotels"][j]["name"]+'<br>Costo/noche: COP $'+data[i]["hotels"][j]["costo"].toLocaleString()+'</label>' +
+            $("#grouphotels ul").append('<li><input class="hotel" type="checkbox" id="'+data[i]["hotels"][j]["id"]+'" name="fooby[2][]" disabled/>' +
+                '            <label for="'+data[i]["hotels"][j]["id"]+'">'+'<img src='+data[i]["hotels"][j]["image"]+'/><br>'+data[i]["hotels"][j]["name"]+'<br>Costo/noche: COP $'+data[i]["hotels"][j]["costo"].toLocaleString()+'</label>' +
                 '</li>');
             $hotelsPrice.push(data[i]["hotels"][j]["costo"]);
         }
@@ -93,13 +93,30 @@ var citiesJson = {
 // 	}
 // });  
 
+function enableHotels(objCity){
+    var i = 0;
+    $( "#grouphotels li" ).each(function( index ) {
+        if(objCity["hotels"].length==i) {
+            return false;
+        }
+        console.log(objCity["hotels"][i]["id"]);
+        console.log($(this).find("input"));
+        if (objCity["hotels"][i]["id"] == $(this).find("input").attr('id')) {
+            $(this).find("input").removeAttr("disabled");
+            i++;
+        }
+    });
+}
+
 $('.trans').click(function() {
 	if (this.checked) {
 		var idd= $(this).attr('id');
 		var place = parseInt(idd.substring(3, idd.length))-1;
 		console.log(place);
-		transValue=$ticketPrice[place];	
+		transValue=$ticketPrice[place];
+		var objCity = data[place];
 		writeTotal();
+		enableHotels(objCity);
 	}else{
 		transValue= 0;
 		writeTotal();
