@@ -18,6 +18,10 @@
 
 <!--custom-->
 <link rel="stylesheet" href="/static/css/index.css">
+
+<script type=text/javascript>
+    var data = {{data| tojson}};
+</script>
 	<title>Plan de vacaciones</title>
 <style>
 
@@ -44,37 +48,17 @@
 <p>Escoge el tuyo:</p>
 <div class="sec">
 <h3>Lugar</h3>
-<ul>
-  <li><input class="trans" type="checkbox" id="lcb1" name="fooby[1][]" />
-    <label for="lcb1"><img src="/static/images/cartagena.jpg"/><br><span class="city">Cartagena</span> (Bolívar)<br>Transporte Ida y Vuelta: COP $500.000</label>
-  </li>
-  <li><input class="trans" type="checkbox" id="lcb2" name="fooby[1][]" />
-    <label for="lcb2"><img src="/static/images/ranchoclaro.jpg"/><br><span class="city">Pavas</span> (Valle del Cauca)<br>Transporte Ida y Vuelta: COP $20.000</label>
-  </li>
-  <li><input class="trans" type="checkbox" id="lcb3" name="fooby[1][]" />
-    <label for="lcb3"><img src="/static/images/honda.jpg" /><br><span class="city">Honda</span> (Tolima) <br>Transporte Ida y Vuelta: COP $100.000</label>
-  </li>
-  <li><input class="trans" type="checkbox" id="lcb4" name="fooby[1][]" />
-    <label for="lcb4"><img src="/static/images/medellin.jpg" /><br><span class="city">Medellín</span> (Antioquia) <br>Transporte Ida y Vuelta: COP $200.000</label>
-  </li>
-</ul>
+    <div id="groupcities">
+        <ul>
+        </ul>
+    </div>
 </div>
 <div class="sec">
 <h3>Hotel</h3>
-<ul>
-  <li><input class="hotel" type="checkbox" id="hcb1" name="fooby[2][]" />
-    <label for="hcb1"><img src="/static/images/cartagena/hotels/hotelpirata.jpg"/><br>Hotel Isla del Pirata<br>Costo/noche: COP $1.221.910</label>
-  </li>
-  <li><input class="hotel" type="checkbox" id="hcb2" name="fooby[2][]" />
-    <label for="hcb2"><img src="/static/images/cartagena/hotels/aptosmorros.jpg"/><br>Apartamentos Morros Cartagena<br>Costo/noche: COP $452.128</label>
-  </li>
-  <li><input class="hotel" type="checkbox" id="hcb3" name="fooby[2][]" />
-    <label for="hcb3"><img src="/static/images/cartagena/hotels/hotelmakondo.jpeg" /><br>Hotel Makondo Boutique <br>Costo/noche: COP $191.024</label>
-  </li>
-  <li><input class="hotel" type="checkbox" id="hcb4" name="fooby[2][]" />
-    <label for="hcb4"><img src="/static/images/cartagena/hotels/casanadiasandro.jpg" /><br>Casa Nadia & Sandro<br>Costo/noche: COP $40.000</label>
-  </li>
-</ul>
+    <div id="grouphotels">
+        <ul>
+        </ul>
+    </div>
 </div>
     <div class="sec">
         <h3> Días </h3>
@@ -90,7 +74,7 @@
     <p>Digite el presupuesto que desea gastarse en comida en estas vacaciones:</p>
         <div class="input-group">
             <span class="input-group-addon">$</span>
-            <input type="number" value="0" min="0" step="1000" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="food" />
+            <input type="number" value="1000" min="1000" step="1000" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="food" />
         </div>
     </div>
     <button type="button" class="btn btn-primary btn-lg btn-block active">Finalizar</button>
@@ -99,6 +83,5 @@
 </div>
 </body>
 <script src="/static/js/index.js"></script>
-
 
 </html>

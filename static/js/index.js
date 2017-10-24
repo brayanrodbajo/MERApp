@@ -1,25 +1,8 @@
-// the selector will match all input controls of type :checkbox
-// and attach a click event handler 
-$("input:checkbox").on('click', function() {
-  // in the handler, 'this' refers to the box clicked on
-  var $box = $(this);
-  if ($box.is(":checked")) {
-    // the name of the box is retrieved using the .attr() method
-    // as it is assumed and expected to be immutable
-    var group = "input:checkbox[name='" + $box.attr("name") + "']";
-    // the checked state of the group/box on the other hand will change
-    // and the current value is retrieved using .prop() method
-    $(group).prop("checked", false);
-    $box.prop("checked", true);
-  } else {
-    $box.prop("checked", false);
-  }
-});
 
 /************** totalValue Computation ***************/
-var $ticketPrice = [500000, 20000, 100000, 200000];
-var $hotelsPrice = [1221910, 452128, 191024, 40000]
-console.log($ticketPrice[0]);
+
+var $ticketPrice = [];
+var $hotelsPrice = [];
 var $totalValueElem = $('.totalValue');
 var $presuValueElem = $('.presuValue');
 var transValue = 0;
@@ -28,7 +11,30 @@ var currentDays = 1;
 var foodValue = 1000;
 var hotelTotalValue = 0; //regarding the days
 var presuIni = 2000000;
+function setCities(){
+    for(var i=1; i<= data.length; i++){
+        $("#groupcities ul").append('<li><input class="trans" type="checkbox" id="lcb'+i.toString()+'" name="fooby[1][]" />' +
+            '            <label for="lcb'+i.toString()+'">'+'<img src='+data[i-1]["image"]+'/><br>'+data[i-1]["name"]+' ('+data[i-1]["department"]+')<br>Transporte Ida y Vuelta: COP $'+data[i-1]["costo"].toLocaleString()+'</label>' +
+            '</li>');
+        $ticketPrice.push(data[i-1]["costo"]);
+    }
+}
 
+function setHotels(){
+    var count=0;
+    for(var i=0; i< data.length; i++) {
+        for (var j = 0; j < data[i]["hotels"].length; j++) {
+            count++;
+            $("#grouphotels ul").append('<li><input class="hotel" type="checkbox" id="hcb'+count.toString()+'" name="fooby[2][]" />' +
+                '            <label for="hcb'+count.toString()+'">'+'<img src='+data[i]["hotels"][j]["image"]+'/><br>'+data[i]["hotels"][j]["name"]+'<br>Costo/noche: COP $'+data[i]["hotels"][j]["costo"].toLocaleString()+'</label>' +
+                '</li>');
+            $hotelsPrice.push(data[i]["hotels"][j]["costo"]);
+        }
+    }
+}
+
+setCities();
+setHotels();
 /************ cities **********/
 /*var citiesStr = '{'+
     '	"Cartagena":[{'+
@@ -90,14 +96,10 @@ var citiesJson = {
 $('.trans').click(function() {
 	if (this.checked) {
 		var idd= $(this).attr('id');
-		console.log(idd);
-		var place = parseInt(idd.charAt(3))-1;
+		var place = parseInt(idd.substring(3, idd.length))-1;
+		console.log(place);
 		transValue=$ticketPrice[place];	
 		writeTotal();
-		var city =   $(this).siblings('label').text().split(" ")[0];
- 		console.log(city);
- 		console.log(citiesJson[city][0]["image"]);
- 		setHotels(city);
 	}else{
 		transValue= 0;
 		writeTotal();
@@ -107,8 +109,8 @@ $('.trans').click(function() {
 $('.hotel').click(function() {
 	if (this.checked) {
 		var idd= $(this).attr('id');
-		console.log(idd);
-		var place = parseInt(idd.charAt(3))-1;
+        var place = parseInt(idd.substring(3, idd.length))-1;
+        console.log(place);
 		hotelValue=$hotelsPrice[place];
 		writeTotal();
 	}else{
@@ -135,13 +137,6 @@ function writeTotal(){
     }
 }
 
-function setHotels(cityChecked){
-    console.log(citiesJson[cityChecked]);
-	for(var i=1; i<= citiesJson[cityChecked].length; i++){
-		$('#hcb'+i.toString()).siblings('label').html("<img src="+citiesJson[cityChecked][i-1]["image"]+"/><br>"+citiesJson[cityChecked][i-1]["name"]+"<br>Costo/noche: COP $"+citiesJson[cityChecked][i-1]["costo"].toLocaleString());
-	}
-}
-
 var slider = document.getElementById("days");
 var output = document.getElementById("demo");
 output.innerHTML = slider.value;
@@ -163,3 +158,21 @@ $('#food').on('input', function() {
 });
 
 
+/***************CUSTOM CHECKBOX ***************/
+// the selector will match all input controls of type :checkbox
+// and attach a click event handler
+$("input:checkbox").on('click', function() {
+    // in the handler, 'this' refers to the box clicked on
+    var $box = $(this);
+    if ($box.is(":checked")) {
+        // the name of the box is retrieved using the .attr() method
+        // as it is assumed and expected to be immutable
+        var group = "input:checkbox[name='" + $box.attr("name") + "']";
+        // the checked state of the group/box on the other hand will change
+        // and the current value is retrieved using .prop() method
+        $(group).prop("checked", false);
+        $box.prop("checked", true);
+    } else {
+        $box.prop("checked", false);
+    }
+});
