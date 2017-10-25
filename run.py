@@ -50,24 +50,24 @@ def summary():
                 "costo": 20000,
                 "hotels":[{
                             "id": "hcb5",
-                            "image": "/static/images/cartagena/hotels/hotelpirata.jpg",
-                            "name": "Hotel Isla del Pirata",
-                            "costo": 1221910
+                            "image": "/static/images/pavas/cabanaslaprimavera.jpg",
+                            "name": "Cabañas La Primavera",
+                            "costo": 160000
                         }, {
                             "id": "hcb6",
-                            "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
-                            "name": "Apartamentos Morros Cartagena",
-                            "costo": 452128
+                            "image": "/static/images/pavas/hostalelmarquez.jpg",
+                            "name": "Hostal El Marquez",
+                            "costo": 120000
                         }, {
                             "id": "hcb7",
-                           "image": "/static/images/cartagena/hotels/hotelpirata.jpg",
-                           "name": "Hotel Isla del Pirata",
-                           "costo": 1221910
+                           "image": "/static/images/pavas/hotelvillasaman.jpg",
+                           "name": "Hotel Villa Samán",
+                           "costo": 130000
                         }, {
                             "id": "hcb8",
-                            "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
-                            "name": "Apartamentos Morros Cartagena",
-                            "costo": 452128
+                            "image": "/static/images/pavas/recintodelossuenos.jpg",
+                            "name": "Hotel Recito De Los Sueños",
+                            "costo": 45128
                         }
                     ],
             },
@@ -78,22 +78,22 @@ def summary():
                 "costo": 100000,
                 "hotels":[{
                             "id": "hcb9",
-                            "image": "/static/images/cartagena/hotels/elvirreyhotel.jpg",
+                            "image": "/static/images/honda/elvirreyhotel.jpg",
                             "name": "El Virrey Hotel Boutique",
                             "costo": 100555
                         }, {
                             "id": "hcb10",
-                            "image": "/static/images/cartagena/hotels/hotelacuaticoaguasol.jpg",
+                            "image": "/static/images/honda/hotelacuaticoaguasol.jpg",
                             "name": "Hotel y Parque Acuatico Agua Sol Alegría",
                             "costo": 148000
                         }, {
                             "id": "hcb11",
-                           "image": "/static/images/cartagena/hotels/lapiragua.jpg",
+                           "image": "/static/images/honda/lapiragua.jpg",
                            "name": "Hotel la Piragua",
                            "costo": 50000
                         }, {
                             "id": "hcb12",
-                            "image": "/static/images/cartagena/hotels/hotellaspiscinas.jpg",
+                            "image": "/static/images/honda/hotellaspiscinas.jpg",
                             "name": "Hotel Las Piscinas",
                             "costo": 125000
                         }
@@ -107,22 +107,22 @@ def summary():
                 "costo": 200000,
                 "hotels":[{
                             "id": "hcb13",
-                            "image": "/static/images/cartagena/hotels/hotelcasaprado.jpg",
+                            "image": "/static/images/medellin/hotelcasaprado.jpg",
                             "name": "Hostal Casa Prado",
                             "costo": 25000
                         }, {
                             "id": "hcb14",
-                            "image": "/static/images/cartagena/hotels/lacampanahotel.jpg",
+                            "image": "/static/images/medellin/lacampanahotel.jpg",
                             "name": "La Campana Hotel Boutique",
                             "costo": 157475
                         }, {
                             "id": "hcb15",
-                           "image": "/static/images/cartagena/hotels/thecharleelifestyle.jpg",
+                           "image": "/static/images/medellin/thecharleelifestyle.jpg",
                            "name": "The Charlee Lifestyle",
                            "costo": 579223
                         }, {
                             "id": "hcb16",
-                            "image": "/static/images/cartagena/hotels/estelarblue.jpg",
+                            "image": "/static/images/medellin/estelarblue.jpg",
                             "name": "Hotel Estelar Blue",
                             "costo": 226950
                         }
