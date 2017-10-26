@@ -1,3 +1,15 @@
+/**events reader **/
+function scrollFunction(){
+    var d = new Date();
+    var curTime = d.getTime();
+    var secs = (curTime - iniTime)/1000;
+    var top = $(document).scrollTop();
+    console.log(top);
+    console.log(secs);
+}
+
+window.onscroll = scrollFunction;
+
 
 /************** totalValue Computation ***************/
 
