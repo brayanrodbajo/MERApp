@@ -2,7 +2,7 @@
 function scrollFunction(){
     var d = new Date();
     var curTime = d.getTime();
-    var secs = (curTime - iniTime)/1000;
+    var secs = parseInt((curTime - iniTime)/1000);
     var top = $(document).scrollTop();
     console.log(top);
     console.log(secs);
@@ -129,6 +129,9 @@ function enableHotels(objCity){
 }
 
 $('.trans').click(function() {
+    var d = new Date();
+    var curTime = d.getTime();
+    var secs = parseInt((curTime - iniTime)/1000);
 	if (this.checked) {
 		var idd= $(this).attr('id');
 		var place = parseInt(idd.substring(3, idd.length))-1;
@@ -144,6 +147,9 @@ $('.trans').click(function() {
 });
 
 $('.hotel').click(function() {
+    var d = new Date();
+    var curTime = d.getTime();
+    var secs = parseInt((curTime - iniTime)/1000);
 	if (this.checked) {
 		var idd= $(this).attr('id');
         var place = parseInt(idd.substring(3, idd.length))-1;
@@ -178,6 +184,9 @@ var slider = document.getElementById("days");
 var output = document.getElementById("demo");
 output.innerHTML = slider.value;
 slider.oninput = function() {
+    var d = new Date();
+    var curTime = d.getTime();
+    var secs = parseInt((curTime - iniTime)/1000);
     output.innerHTML = this.value;
     currentDays = parseInt(this.value);
     writeTotal();
@@ -190,6 +199,9 @@ function changeStep() {
 }
 
 $('#food').on('input', function() {
+    var d = new Date();
+    var curTime = d.getTime();
+    var secs = parseInt((curTime - iniTime)/1000);
     foodValue = parseInt($(this).val());
     writeTotal();
 });
