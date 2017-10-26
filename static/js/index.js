@@ -105,7 +105,15 @@ var citiesJson = {
 // 	}
 // });  
 
+
+function disableHotels(){
+    $( "#grouphotels li" ).each(function( index ) {
+        $(this).find("input").attr("disabled", true);
+    });
+}
+
 function enableHotels(objCity){
+    disableHotels();
     var i = 0;
     $( "#grouphotels li" ).each(function( index ) {
         if(objCity["hotels"].length==i) {
