@@ -1,11 +1,12 @@
+var events = [];
 /**events reader **/
 function scrollFunction(){
     var d = new Date();
     var curTime = d.getTime();
     var secs = parseInt((curTime - iniTime)/1000);
     var top = $(document).scrollTop();
-    console.log(top);
-    console.log(secs);
+    events.push([IDSession, "Scroll", top, secs]);
+    console.log(events);
 }
 
 window.onscroll = scrollFunction;
@@ -25,7 +26,7 @@ var hotelTotalValue = 0; //regarding the days
 var presuIni = 2000000;
 function setCities(){
     for(var i=1; i<= data.length; i++){
-        $("#groupcities ul").append('<li><input class="trans" type="checkbox" id="lcb'+i.toString()+'" name="fooby[1][]" />' +
+        $("#groupcities ul").append('<li><input class="trans" type="checkbox" id="lcb'+i.toString()+'" name="fooby1" value="lcb'+i.toString()+'"/>' +
             '            <label for="lcb'+i.toString()+'">'+'<img src='+data[i-1]["image"]+'/><br>'+data[i-1]["name"]+' ('+data[i-1]["department"]+')<br>Transporte Ida y Vuelta: COP $'+data[i-1]["costo"].toLocaleString()+'</label>' +
             '</li>');
         $ticketPrice.push(data[i-1]["costo"]);
@@ -37,7 +38,7 @@ function setHotels(){
     for(var i=0; i< data.length; i++) {
         for (var j = 0; j < data[i]["hotels"].length; j++) {
             count++;
-            $("#grouphotels ul").append('<li><input class="hotel" type="checkbox" id="'+data[i]["hotels"][j]["id"]+'" name="fooby[2][]" disabled/>' +
+            $("#grouphotels ul").append('<li><input class="hotel" type="checkbox" id="'+data[i]["hotels"][j]["id"]+'" name="fooby2"  value="'+data[i]["hotels"][j]["id"]+'" disabled/>' +
                 '            <label for="'+data[i]["hotels"][j]["id"]+'">'+'<img src='+data[i]["hotels"][j]["image"]+'/><br>'+data[i]["hotels"][j]["name"]+'<br>Costo/noche: COP $'+data[i]["hotels"][j]["costo"].toLocaleString()+'</label>' +
                 '</li>');
             $hotelsPrice.push(data[i]["hotels"][j]["costo"]);
@@ -69,7 +70,7 @@ setHotels();
     '				"costo": 452128'+
     '			} '+
     '	]'+
-'}';*/
+'}';*//*
 var citiesJson = {
     	"Cartagena":[{
     				"image": "/static/images/cartagena/hotels/hotelpirata.jpg",
@@ -91,7 +92,7 @@ var citiesJson = {
     				"costo": 452128
     			}
     	]
-    };
+    };*/
 //var citiesJson = JSON.parse(citiesStr);
 
 
@@ -191,7 +192,7 @@ slider.oninput = function() {
     currentDays = parseInt(this.value);
     writeTotal();
     changeStep();
-}
+};
 
 function changeStep() {
     var x = Math.floor((Math.random() * 5) + 1);
