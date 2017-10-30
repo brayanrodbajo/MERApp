@@ -120,8 +120,6 @@ function enableHotels(objCity){
         if(objCity["hotels"].length==i) {
             return false;
         }
-        console.log(objCity["hotels"][i]["id"]);
-        console.log($(this).find("input"));
         if (objCity["hotels"][i]["id"] == $(this).find("input").attr('id')) {
             $(this).find("input").removeAttr("disabled");
             i++;
@@ -136,14 +134,17 @@ $('.trans').click(function() {
 	if (this.checked) {
 		var idd= $(this).attr('id');
 		var place = parseInt(idd.substring(3, idd.length))-1;
-		console.log(place);
 		transValue=$ticketPrice[place];
 		var objCity = data[place];
 		writeTotal();
 		enableHotels(objCity);
+        events.push([IDSession, "CheckCiudad", $(this).attr('id'), secs]);
+        console.log(events);
 	}else{
 		transValue= 0;
 		writeTotal();
+        events.push([IDSession, "UncheckCiudad", $(this).attr('id'), secs]);
+        console.log(events);
 	}
 });
 
@@ -154,12 +155,15 @@ $('.hotel').click(function() {
 	if (this.checked) {
 		var idd= $(this).attr('id');
         var place = parseInt(idd.substring(3, idd.length))-1;
-        console.log(place);
 		hotelValue=$hotelsPrice[place];
 		writeTotal();
+        events.push([IDSession, "CheckHotel", $(this).attr('id'), secs]);
+        console.log(events);
 	}else{
 		hotelValue= 0;
 		writeTotal();
+        events.push([IDSession, "UncheckHotel", $(this).attr('id'), secs]);
+        console.log(events);
 	}
 });
 
@@ -192,6 +196,8 @@ slider.oninput = function() {
     currentDays = parseInt(this.value);
     writeTotal();
     changeStep();
+    events.push([IDSession, "ChangeDias", currentDays, secs]);
+    console.log(events);
 };
 
 function changeStep() {
@@ -205,6 +211,8 @@ $('#food').on('input', function() {
     var secs = parseInt((curTime - iniTime)/1000);
     foodValue = parseInt($(this).val());
     writeTotal();
+    events.push([IDSession, "ChangeComida", $(this).val(), secs]);
+    console.log(events);
 });
 
 
@@ -226,3 +234,16 @@ $("input:checkbox").on('click', function() {
         $box.prop("checked", false);
     }
 });
+
+
+/****** SEND DATA **********/
+
+function sendData(){
+    $.ajax({
+        url: "/events",
+        type: "POST",
+        data: JSON.stringify({events: events}),
+        contentType: "application/json; charset=utf-8",
+        success: function(dat) { console.log(dat); }
+    });
+}

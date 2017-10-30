@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, redirect
 import os, sys
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -123,15 +123,24 @@ data = [{
 def cargar():
     if request.method == 'GET':
         print 'Entro en GET'
-        return render_template('index.html', data= data)
+        return render_template('index.html', data= data, id=1)
     if request.method == 'POST':
         print 'Entro en POST'
-        city=str(request.form.getlist('fooby1')[0])
-        hotel=str(request.form.getlist('fooby2')[0])
+        city=str(request.form.getlist('fooby1'))
+        hotel=str(request.form.getlist('fooby2'))
         text_file = open("Output.txt", "w")
         text_file.write(city + "\n" + hotel)
         text_file.close()
-        return 'OK'
+        return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
+
+@app.route('/events',  methods=['POST'])
+def load_events():
+    data = request.get_json()
+    events = data['events']
+    text_file = open("events.txt", "w")
+    text_file.write(str(events))
+    text_file.close()
+    return 'OK Events'
 
 
 if __name__ == '__main__': 
