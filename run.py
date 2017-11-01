@@ -137,11 +137,13 @@ def cargar():
 
 @app.route('/events',  methods=['POST'])
 def load_events():
+    header = [["IDSession", "TipoEvento", "Valor", "Tiempo(s)"]]
     data = request.get_json()
     events = data['events']
+    all_data = header + events
     with open("events.csv", "wb") as f:
         writer = csv.writer(f)
-        writer.writerows(events)
+        writer.writerows(all_data)
     return 'OK Events'
 
 

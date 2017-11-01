@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb9a3dc-dbca-447e-bad6-7cb573ae903e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.~lock.events.csv#" afterPath="$PROJECT_DIR$/.~lock.events.csv#" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output.txt" afterPath="$PROJECT_DIR$/Output.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events.csv" afterPath="$PROJECT_DIR$/events.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run.py" afterPath="$PROJECT_DIR$/run.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,7 +22,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4428">
+            <state relative-caret-position="456">
               <caret line="246" column="52" lean-forward="false" selection-start-line="246" selection-start-column="52" selection-end-line="246" selection-end-column="52" />
               <folding />
             </state>
@@ -54,8 +54,8 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="138" column="18" lean-forward="false" selection-start-line="138" selection-start-column="18" selection-end-line="138" selection-end-column="18" />
+            <state relative-caret-position="463">
+              <caret line="145" column="34" lean-forward="true" selection-start-line="145" selection-start-column="34" selection-end-line="145" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -200,7 +200,7 @@
       <workItem from="1509233670682" duration="276000" />
       <workItem from="1509303449551" duration="3853000" />
       <workItem from="1509379310748" duration="13859000" />
-      <workItem from="1509551815127" duration="647000" />
+      <workItem from="1509551815127" duration="1020000" />
     </task>
     <task id="LOCAL-00001" summary="take secs in Integer for every event.">
       <created>1509038636537</created>
@@ -213,7 +213,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106538000" />
+    <option name="totallyTimeSpent" value="106911000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1303" height="780" extended-state="6" />
@@ -694,7 +694,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4428">
+        <state relative-caret-position="456">
           <caret line="246" column="52" lean-forward="false" selection-start-line="246" selection-start-column="52" selection-end-line="246" selection-end-column="52" />
           <folding />
         </state>
@@ -702,8 +702,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="138" column="18" lean-forward="false" selection-start-line="138" selection-start-column="18" selection-end-line="138" selection-end-column="18" />
+        <state relative-caret-position="463">
+          <caret line="145" column="34" lean-forward="true" selection-start-line="145" selection-start-column="34" selection-end-line="145" selection-end-column="34" />
           <folding />
         </state>
       </provider>
