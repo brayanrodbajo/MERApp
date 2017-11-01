@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, render_template, jsonify, redirect
 import os, sys
+import csv
+
 reload(sys)
 sys.setdefaultencoding('utf8')
 app = Flask(__name__)
@@ -137,9 +139,9 @@ def cargar():
 def load_events():
     data = request.get_json()
     events = data['events']
-    text_file = open("events.txt", "w")
-    text_file.write(str(events))
-    text_file.close()
+    with open("events.csv", "wb") as f:
+        writer = csv.writer(f)
+        writer.writerows(events)
     return 'OK Events'
 
 
