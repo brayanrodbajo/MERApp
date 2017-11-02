@@ -129,7 +129,7 @@ def get_id():
     if os.path.isfile("id_file.csv"):
         with open("id_file.csv", 'r') as f:
             last_row = list(csv.reader(f))[-1]
-            print last_row 
+            print last_row
             id_session = int(last_row[0])+1
     return id_session
 
@@ -146,7 +146,7 @@ def load():
         print 'Entro en POST'
         city=str(request.form.getlist('fooby1'))
         hotel=str(request.form.getlist('fooby2'))
-        text_file = open("Output.txt", "w")
+        text_file = open("Output"+str(id_session)+".txt", "w")
         text_file.write(city + "\n" + hotel)
         text_file.close()
         return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
