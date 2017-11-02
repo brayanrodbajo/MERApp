@@ -121,11 +121,27 @@ data = [{
     },
   ]
 
+global id_session
+
+def get_id():
+    id_session=1
+    print(os.path.isfile("id_file.csv"))
+    if os.path.isfile("id_file.csv"):
+        with open("id_file.csv", 'r') as f:
+            last_row = list(csv.reader(f))[-1]
+            print last_row 
+            id_session = int(last_row[0])+1
+    return id_session
+
+
 @app.route('/',  methods = ['GET', 'POST'])
-def cargar():
+def load():
     if request.method == 'GET':
         print 'Entro en GET'
-        return render_template('index.html', data= data, id=1)
+        global id_session
+        id_session = get_id()
+        print id_session
+        return render_template('index.html', data= data, id=id_session)
     if request.method == 'POST':
         print 'Entro en POST'
         city=str(request.form.getlist('fooby1'))
@@ -137,11 +153,13 @@ def cargar():
 
 @app.route('/events',  methods=['POST'])
 def load_events():
+    with open('id_file.csv', 'a') as file:
+        file.write("\n"+str(id_session)+", events"+str(id_session)+".csv")
     header = [["IDSession", "TipoEvento", "Valor", "Tiempo(s)"]]
     data = request.get_json()
     events = data['events']
     all_data = header + events
-    with open("events.csv", "wb") as f:
+    with open("events"+str(id_session)+".csv", "wb") as f:
         writer = csv.writer(f)
         writer.writerows(all_data)
     return 'OK Events'
