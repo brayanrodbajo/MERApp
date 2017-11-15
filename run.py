@@ -149,7 +149,7 @@ def load():
         text_file = open("Output"+str(id_session)+".txt", "w")
         text_file.write(city + "\n" + hotel)
         text_file.close()
-        return render_template('jokeLoading.html', id=id_session)
+        return redirect('/loading')
         # return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
 
 @app.route('/events',  methods=['POST'])
@@ -165,6 +165,20 @@ def load_events():
         writer.writerows(all_data)
     return 'OK Events'
 
+@app.route('/loading',  methods=['GET'])
+def joke_loading():
+    if request.method == 'GET':
+        return render_template('jokeLoading.html', id=id_session)
+    if request.method == 'POST':
+        return redirect('/satisfaction')
 
-if __name__ == '__main__': 
+@app.route('/satisfaction',  methods=['GET'])
+def joke_loading():
+    if request.method == 'GET':
+        return render_template('satisfaction.html', id=id_session)
+    if request.method == 'POST':
+        return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
+
+
+if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True, port=12345, use_reloader=True)
