@@ -12,10 +12,18 @@
     <link rel="stylesheet" href="/static/css/satisfaction.css">
 </head>
 <body>
-    <input id="valR" type="range" min="0" max="100" value="0" step="5" oninput="showVal(this.value)" onchange="showVal(this.value)" />
-    <span id="range">0</span>
-    <img id="img-video">
+    <div class="container">
+        <h1 class="display-3">Plan de vacaciones</h1>
+        <p>Desliza el punto verde que se encuentra en la siguiente barra lateral e identifica cuándo el actor cambia de estado de ánimo.</p>
+        <div class="face-container">
+            <input class="slider" id="valR" type="range" min="1" max="60" value="0" step="1" oninput="showVal(this.value)" onchange="showVal(this.value)" />
+            <img id="img-video">
+        </div>
+        <form method="post">
+            <button type="submit" class="btn btn-primary">Continuar</button>
+        </form>
+    </div>
 
 </body>
-<script src="/static/js/jokeLoading.js"></script>
+<script src="/static/js/satisfaction.js"></script>
 </html>

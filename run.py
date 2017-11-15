@@ -165,15 +165,15 @@ def load_events():
         writer.writerows(all_data)
     return 'OK Events'
 
-@app.route('/loading',  methods=['GET'])
+@app.route('/loading',  methods=['GET', 'POST'])
 def joke_loading():
     if request.method == 'GET':
         return render_template('jokeLoading.html', id=id_session)
     if request.method == 'POST':
         return redirect('/satisfaction')
 
-@app.route('/satisfaction',  methods=['GET'])
-def joke_loading():
+@app.route('/satisfaction',  methods=['GET', 'POST'])
+def satisfaction():
     if request.method == 'GET':
         return render_template('satisfaction.html', id=id_session)
     if request.method == 'POST':
