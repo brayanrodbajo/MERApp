@@ -144,11 +144,6 @@ def load():
         return render_template('index.html', data= data, id=id_session)
     if request.method == 'POST':
         print 'Entro en POST'
-        city=str(request.form.getlist('fooby1'))
-        hotel=str(request.form.getlist('fooby2'))
-        text_file = open("Output"+str(id_session)+".txt", "w")
-        text_file.write(city + "\n" + hotel)
-        text_file.close()
         return redirect('/loading')
         # return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
 
@@ -175,7 +170,7 @@ def joke_loading():
 @app.route('/satisfaction',  methods=['GET', 'POST'])
 def satisfaction():
     if request.method == 'GET':
-        return render_template('satisfaction.html', id=id_session)
+        return render_template('satisfaction.html', data= data, id=id_session)
     if request.method == 'POST':
         return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
 
