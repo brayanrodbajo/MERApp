@@ -10,6 +10,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/static/css/satisfaction.css">
+
+	<script type=text/javascript>
+		//time for events
+		var data = {{data| tojson}};
+		var d = new Date();
+		var iniTime = d.getTime();
+
+		var IDSession = {{id}};
+		console.log(IDSession);
+	</script>
 </head>
 <body>
     <div class="container">
@@ -18,10 +28,10 @@
         <div class="face-container">
             <input class="slider" id="valR" type="range" min="1" max="60" value="0" step="1" oninput="showVal(this.value)" onchange="showVal(this.value)" />
             <img id="img-video">
-        </div>
         <form method="post">
-            <button type="submit" class="btn btn-primary">Continuar</button>
+            <button type="submit" class="btn btn-primary active">Continuar</button>
         </form>
+        </div>
     </div>
 
 </body>
