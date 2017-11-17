@@ -2,37 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb9a3dc-dbca-447e-bad6-7cb573ae903e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Output.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Output10.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Output11.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Output12.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Output13.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Output4.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Output5.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Output6.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Output7.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Output8.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Output9.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events10.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events11.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events12.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events13.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events3.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/events5.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/MERApp.iml" afterPath="$PROJECT_DIR$/.idea/MERApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/events1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/events2.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/events4.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/events6.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/events7.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/events8.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/events9.csv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events1.csv" afterPath="$PROJECT_DIR$/events1.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events2.csv" afterPath="$PROJECT_DIR$/events2.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events4.csv" afterPath="$PROJECT_DIR$/events4.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events6.csv" afterPath="$PROJECT_DIR$/events6.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events7.csv" afterPath="$PROJECT_DIR$/events7.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events8.csv" afterPath="$PROJECT_DIR$/events8.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events9.csv" afterPath="$PROJECT_DIR$/events9.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run.py" afterPath="$PROJECT_DIR$/run.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/satisfaction.js" afterPath="$PROJECT_DIR$/static/js/satisfaction.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/satisfaction.html" afterPath="$PROJECT_DIR$/templates/satisfaction.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,11 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="satisfaction.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="satisfaction.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/satisfaction.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
               <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -180,6 +167,7 @@
         <option value="$PROJECT_DIR$/run.py" />
         <option value="$PROJECT_DIR$/static/js/jokeLoading.js" />
         <option value="$PROJECT_DIR$/static/js/index.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -367,7 +355,7 @@
       <workItem from="1510326081691" duration="7325000" />
       <workItem from="1510345686759" duration="2988000" />
       <workItem from="1510948388349" duration="235000" />
-      <workItem from="1510948667349" duration="5037000" />
+      <workItem from="1510948667349" duration="5564000" />
     </task>
     <task id="LOCAL-00001" summary="take secs in Integer for every event.">
       <created>1509038636537</created>
@@ -383,11 +371,25 @@
       <option name="project" value="LOCAL" />
       <updated>1510953860337</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="reading events in satisfaction page">
+      <created>1510953928366</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1510953928366</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ignoring events files">
+      <created>1510954154452</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1510954154452</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136930000" />
+    <option name="totallyTimeSpent" value="137457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1303" height="780" extended-state="6" />
@@ -397,14 +399,14 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882884" sideWeight="0.50269026" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882884" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32882884" sideWeight="0.49730977" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25749424" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25749424" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -431,7 +433,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="take secs in Integer for every event." />
     <MESSAGE value="disable hotels when unckecking a city" />
-    <option name="LAST_COMMIT_MESSAGE" value="disable hotels when unckecking a city" />
+    <MESSAGE value="reading events in satisfaction page" />
+    <MESSAGE value="ignoring events files" />
+    <option name="LAST_COMMIT_MESSAGE" value="ignoring events files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -440,13 +444,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2016">
-          <caret line="112" column="22" lean-forward="false" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -827,6 +824,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
