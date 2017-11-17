@@ -114,7 +114,6 @@ function disableHotels(){
 }
 
 function enableHotels(objCity){
-    disableHotels();
     var i = 0;
     $( "#grouphotels li" ).each(function( index ) {
         if(objCity["hotels"].length==i) {
@@ -137,11 +136,13 @@ $('.trans').click(function() {
 		transValue=$ticketPrice[place];
 		var objCity = data[place];
 		writeTotal();
+        disableHotels();
 		enableHotels(objCity);
         events.push([IDSession, "CheckCiudad", $(this).attr('id'), secs]);
         console.log(events);
 	}else{
 		transValue= 0;
+        disableHotels();
 		writeTotal();
         events.push([IDSession, "UncheckCiudad", $(this).attr('id'), secs]);
         console.log(events);
