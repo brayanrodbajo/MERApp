@@ -144,20 +144,25 @@ def load():
         return render_template('index.html', data= data, id=id_session)
     if request.method == 'POST':
         print 'Entro en POST'
+        write_id() # the events file has been created
         return redirect('/loading')
         # return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
 
-@app.route('/events',  methods=['POST'])
-def load_events():
+def write_id():
     with open('id_file.csv', 'a') as file:
         file.write("\n"+str(id_session)+", events"+str(id_session)+".csv")
-    header = [["IDSession", "TipoEvento", "Valor", "Tiempo(s)"]]
+
+@app.route('/events',  methods=['POST'])
+def load_events():
+    fname = 'events'+str(id_session)+'.csv'
     data = request.get_json()
     events = data['events']
-    all_data = header + events
-    with open("events"+str(id_session)+".csv", "wb") as f:
+    if not os.path.isfile(fname): #if the file does not exist, the header must be preposed
+        header = [["IDSession", "TipoEvento", "Valor", "Tiempo(s)"]]
+        events = header + events
+    with open(fname, 'a') as f:
         writer = csv.writer(f)
-        writer.writerows(all_data)
+        writer.writerows(events)
     return 'OK Events'
 
 @app.route('/loading',  methods=['GET', 'POST'])
@@ -170,7 +175,7 @@ def joke_loading():
 @app.route('/satisfaction',  methods=['GET', 'POST'])
 def satisfaction():
     if request.method == 'GET':
-        return render_template('satisfaction.html', data= data, id=id_session)
+        return render_template('satisfaction.html', id=id_session)
     if request.method == 'POST':
         return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
 
