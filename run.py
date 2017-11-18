@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, render_template, jsonify, redirect
-import os, sys
+import os, sys, random
 import csv
 
 reload(sys)
@@ -133,6 +133,10 @@ def get_id():
             id_session = int(last_row[0])+1
     return id_session
 
+def choose_song(sti = 'A'):
+    music_file_path = random.choice(os.listdir("static/songs/"+sti))
+    print music_file_path
+    return "/static/songs/"+sti+"/"+music_file_path
 
 @app.route('/',  methods = ['GET', 'POST'])
 def load():
@@ -141,7 +145,8 @@ def load():
         global id_session
         id_session = get_id()
         print id_session
-        return render_template('index.html', data= data, id=id_session)
+        music_path = choose_song('A')
+        return render_template('index.html', data= data, id=id_session, music_path= music_path)
     if request.method == 'POST':
         print 'Entro en POST'
         write_id() # the events file has been created
