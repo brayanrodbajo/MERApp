@@ -134,9 +134,10 @@ def get_id():
     return id_session
 
 def choose_song(sti = 'A'):
-    music_file_path = random.choice(os.listdir("static/songs/"+sti))
+    folder = "/static/songs/" + sti
+    music_file_path = random.choice(os.listdir(folder))
     print music_file_path
-    return "/static/songs/"+sti+"/"+music_file_path
+    return folder + "/" + music_file_path
 
 @app.route('/',  methods = ['GET', 'POST'])
 def load():
