@@ -134,10 +134,10 @@ def get_id():
     return id_session
 
 def choose_song(sti = 'A'):
-    folder = "/static/songs/" + sti
+    folder = "static/songs/" + sti
     music_file_path = random.choice(os.listdir(folder))
     print music_file_path
-    return folder + "/" + music_file_path
+    return "/" + folder + "/" + music_file_path
 
 @app.route('/',  methods = ['GET', 'POST'])
 def load():
@@ -147,7 +147,7 @@ def load():
         id_session = get_id()
         print id_session
         music_path = choose_song('A')
-        return render_template('index.html', data= data, id=id_session, music_path= music_path)
+        return render_template('index.html', data= data, id=id_session, music_path=music_path)
     if request.method == 'POST':
         print 'Entro en POST'
         write_id() # the events file has been created
@@ -181,7 +181,7 @@ def joke_loading():
 @app.route('/satisfaction',  methods=['GET', 'POST'])
 def satisfaction():
     if request.method == 'GET':
-        return render_template('satisfaction.html', id=id_session)
+        return render_template('satisfaction.html', id=id_session, path='/static/images/satisfaction/man1/')
     if request.method == 'POST':
         return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
 

@@ -5,7 +5,7 @@ function showVal(newVal){
     var d = new Date();
     var curTime = d.getTime();
     var secs = parseInt((curTime - iniTime)/1000);
-    document.getElementById("img-video").src = "/static/images/satisfaction/man1/"+newVal+ ".png";
+    document.getElementById("img-video").src = path+newVal+ ".png";
     events.push([IDSession, "ChangeSatisfactionFace", newVal, secs]);
 }
 
