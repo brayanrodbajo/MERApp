@@ -48,63 +48,6 @@ function setHotels(){
 
 setCities();
 setHotels();
-/************ cities **********/
-/*var citiesStr = '{'+
-    '	"Cartagena":[{'+
-    '				"image": "/static/images/cartagena/hotels/hotelpirata.jpg",'+
-    '				"name": "Hotel Isla del Pirata",'+
-    '				"costo": 1221910'+
-    '			}, {'+
-    '				"image": "/static/images/cartagena/hotels/aptosmorros.jpg",'+
-    '				"name": "Apartamentos Morros Cartagena",'+
-    '				"costo": 452128'+
-    '			} '+
-    '	],'+
-    '	"Honda":[{'+
-    '				"image": "/static/images/cartagena/hotels/aptosmorros.jpg",'+
-    '				"name": "Hotel Honda 1",'+
-    '				"costo": 1221910'+
-    '			}, {'+
-    '				"image": "/static/images/cartagena/hotels/hotelpirata.jpg",'+
-    '				"name": "Hotel Honda 2",'+
-    '				"costo": 452128'+
-    '			} '+
-    '	]'+
-'}';*//*
-var citiesJson = {
-    	"Cartagena":[{
-    				"image": "/static/images/cartagena/hotels/hotelpirata.jpg",
-    				"name": "Hotel Isla del Pirata",
-    				"costo": 1221910
-    			}, {
-    				"image": "/static/images/cartagena/hotels/aptosmorros.jpg",
-    				"name": "Apartamentos Morros Cartagena",
-    				"costo": 452128
-    			}
-    	],
-    	"Honda":[{
-    				"image": "/static/images/cartagena/hotels/aptosmorros.jpg",
-    				"name": "Hotel Honda 1",
-    				"costo": 1221910
-    			}, {
-    				"image": "/static/images/cartagena/hotels/hotelpirata.jpg",
-    				"name": "Hotel Honda 2",
-    				"costo": 452128
-    			}
-    	]
-    };*/
-//var citiesJson = JSON.parse(citiesStr);
-
-
-// $('#lcb1'.toString()).change(function() {
-// 	// this will contain a reference to the checkbox   
-// 	console.log(this);
-// 	if (this.checked) {
-// 		console.log(1);
-// 		transValue=$ticketPrice[0];
-// 		writeTotal();
-// 	}
-// });  
 
 
 function disableHotels(){
@@ -175,7 +118,8 @@ function writeTotal(){
 	$totalValueElem.html(total.toLocaleString());
 	$presuValueElem.html(presu.toLocaleString());
     $("#food").prop('max',presu);
-	if(presu<0) {
+    //effects if the badget is less than 0
+	/*if(presu<0) {
         $presuValueElem.css("color", "red");
         $(".total").css("background-color","#ffefef");
         $(".preserror").show();
@@ -183,7 +127,7 @@ function writeTotal(){
         $presuValueElem.css("color", "black");
         $(".total").css("background-color","#f5f5f5");
         $(".preserror").css("display","none");
-    }
+    }*/
 }
 
 var slider = document.getElementById("days");
