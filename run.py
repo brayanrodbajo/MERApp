@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, render_template, jsonify, redirect
-import os, sys, random
+import os, sys, random, datetime, glob
 import csv
 
 reload(sys)
@@ -15,22 +15,46 @@ data = [{
                     "id": "hcb1",
                     "image": "/static/images/cartagena/hotels/hotelpirata.jpg",
                     "name": "Hotel Isla del Pirata",
-                    "costo": 1221910
+                    "costo": 1221910,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb2",
                     "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
                     "name": "Apartamentos Morros Cartagena",
-                    "costo": 452128
+                    "costo": 452128,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb3",
                    "image": "/static/images/cartagena/hotels/hotelmakondo.jpeg",
                    "name": "Hotel Makondo",
-                   "costo": 1221910
+                   "costo": 1221910,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb4",
                     "image": "/static/images/cartagena/hotels/casanadiasandro.jpg",
                     "name": "Hotel Casa Nadia & Sandro",
-                    "costo": 452128
+                    "costo": 452128,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }
             ],
     },
@@ -43,22 +67,46 @@ data = [{
                     "id": "hcb5",
                     "image": "/static/images/pavas/cabanaslaprimavera.jpg",
                     "name": "Cabañas La Primavera",
-                    "costo": 160000
+                    "costo": 160000,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb6",
                     "image": "/static/images/pavas/hostalelmarquez.jpg",
                     "name": "Hostal El Marquez",
-                    "costo": 120000
+                    "costo": 120000,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb7",
                    "image": "/static/images/pavas/hotelvillasaman.jpg",
                    "name": "Hotel Villa Samán",
-                   "costo": 130000
+                   "costo": 130000,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb8",
                     "image": "/static/images/pavas/recintodelossuenos.jpg",
                     "name": "Hotel Recito De Los Sueños",
-                    "costo": 45128
+                    "costo": 45128,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }
             ],
     },
@@ -71,22 +119,46 @@ data = [{
                     "id": "hcb9",
                     "image": "/static/images/honda/elvirreyhotel.jpg",
                     "name": "El Virrey Hotel Boutique",
-                    "costo": 100555
+                    "costo": 100555,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb10",
                     "image": "/static/images/honda/hotelacuaticoaguasol.jpg",
                     "name": "Hotel y Parque Acuatico Agua Sol Alegría",
-                    "costo": 148000
+                    "costo": 148000,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb11",
                    "image": "/static/images/honda/lapiragua.jpg",
                    "name": "Hotel la Piragua",
-                   "costo": 50000
+                   "costo": 50000,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb12",
                     "image": "/static/images/honda/hotellaspiscinas.jpg",
                     "name": "Hotel Las Piscinas",
-                    "costo": 125000
+                    "costo": 125000,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }
             ],
     },
@@ -100,28 +172,54 @@ data = [{
                     "id": "hcb13",
                     "image": "/static/images/medellin/hotelcasaprado.jpg",
                     "name": "Hostal Casa Prado",
-                    "costo": 25000
+                    "costo": 25000,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb14",
                     "image": "/static/images/medellin/lacampanahotel.jpg",
                     "name": "La Campana Hotel Boutique",
-                    "costo": 157475
+                    "costo": 157475,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb15",
                    "image": "/static/images/medellin/thecharleelifestyle.jpg",
                    "name": "The Charlee Lifestyle",
-                   "costo": 579223
+                   "costo": 579223,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }, {
                     "id": "hcb16",
                     "image": "/static/images/medellin/estelarblue.jpg",
                     "name": "Hotel Estelar Blue",
-                    "costo": 226950
+                    "costo": 226950,
+                    "amenities": [
+                        "Se permite fumar",
+                        "Barra libre",
+                        "Recepción abierta 24 horas",
+                        "Pool party todas las noches",
+                    ]
                 }
             ],
     },
   ]
 
 global id_session
+global fname
+fname = ""
 
 def get_id():
     id_session=1
@@ -156,13 +254,16 @@ def load():
 
 def write_id():
     with open('id_file.csv', 'a') as file:
-        file.write("\n"+str(id_session)+", events"+str(id_session)+".csv")
+        file.write("\n"+str(id_session)+", "+fname)
 
 @app.route('/events',  methods=['POST'])
 def load_events():
-    fname = 'events'+str(id_session)+'.csv'
+    global fname
+    fname = 'events'+str(id_session)+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S").replace(" ", "")+'.csv'
     data = request.get_json()
     events = data['events']
+    for file in glob.glob('events'+str(id_session)+'*'):
+        fname=file
     if not os.path.isfile(fname): #if the file does not exist, the header must be preposed
         header = [["IDSession", "TipoEvento", "Valor", "Tiempo(s)"]]
         events = header + events
@@ -182,8 +283,6 @@ def joke_loading():
 def satisfaction():
     if request.method == 'GET':
         return render_template('satisfaction.html', id=id_session, path='/static/images/satisfaction/man1/')
-    if request.method == 'POST':
-        return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
 
 
 if __name__ == '__main__':
