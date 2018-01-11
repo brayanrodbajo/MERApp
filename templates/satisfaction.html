@@ -28,10 +28,12 @@
         <div class="face-container">
             <input class="slider" id="valR" type="range" min="1" max="60" value="0" step="1" oninput="showVal(this.value)" onchange="showVal(this.value)" />
             <img id="img-video">
-        <form method="post">
-            <button onclick="sendData()" type="submit" class="btn btn-primary active">Continuar</button>
-        </form>
         </div>
+        <p> Su IDSession es: {{id}}</p>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?embedded=true" width="900" height="600" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+        <form method="post">
+            <button onclick="sendData()" type="submit" class="btn btn-primary active">Finalizar</button>
+        </form>
     </div>
 
 </body>
