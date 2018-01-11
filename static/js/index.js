@@ -1,3 +1,6 @@
+/**$(function () {
+    $('[data-toggle="popover"]').popover()
+})*/
 var events = [];
 /**events reader **/
 function scrollFunction(){
@@ -6,7 +9,6 @@ function scrollFunction(){
     var secs = parseInt((curTime - iniTime)/1000);
     var top = $(document).scrollTop();
     events.push([IDSession, "Scroll", top, secs]);
-    console.log(events);
 }
 
 window.onscroll = scrollFunction;
@@ -18,6 +20,8 @@ var $ticketPrice = [];
 var $hotelsPrice = [];
 var $totalValueElem = $('.totalValue');
 var $presuValueElem = $('.presuValue');
+var slider = document.getElementById("days");
+var output = document.getElementById("demo");
 var transValue = 0;
 var hotelValue = 0;
 var currentDays = 1;
@@ -33,13 +37,35 @@ function setCities(){
     }
 }
 
+function listAmenities(amenities){
+    var res = "";
+    for (var i = 0; i<amenities.length; i++){
+        res+="<br>"+amenities[i];
+    }
+    return res;
+}
+
 function setHotels(){
     var count=0;
     for(var i=0; i< data.length; i++) {
         for (var j = 0; j < data[i]["hotels"].length; j++) {
+            var dp = "left"
+            if (j % 2 == 0 || j==0){
+                dp = "right";
+            }
             count++;
             $("#grouphotels ul").append('<li><input class="hotel" type="checkbox" id="'+data[i]["hotels"][j]["id"]+'" name="fooby2"  value="'+data[i]["hotels"][j]["id"]+'" disabled/>' +
-                '            <label for="'+data[i]["hotels"][j]["id"]+'">'+'<img src='+data[i]["hotels"][j]["image"]+'/><br>'+data[i]["hotels"][j]["name"]+'<br>Costo/noche: COP $'+data[i]["hotels"][j]["costo"].toLocaleString()+'</label>' +
+                '            <label for="'+data[i]["hotels"][j]["id"]+'">'+
+                '<img  id="img'+data[i]["hotels"][j]["id"]+'" ' +
+                'data-html="true"'+
+                'title="Características" ' +
+                'data-toggle="popover" ' +
+                'data-trigger="hover" ' +
+                'data-placement="'+dp+'" ' +
+                'data-content="<ul>'+listAmenities(data[i]["hotels"][j]["amenities"])+'</ul>" ' +
+                'src='+data[i]["hotels"][j]["image"]+'/>' +
+                '<br>'+data[i]["hotels"][j]["name"]+'<br>Costo/noche: COP $'+data[i]["hotels"][j]["costo"].toLocaleString()+
+                '</label>' +
                 '</li>');
             $hotelsPrice.push(data[i]["hotels"][j]["costo"]);
         }
@@ -53,6 +79,9 @@ setHotels();
 function disableHotels(){
     $( "#grouphotels li" ).each(function( index ) {
         $(this).find("input").attr("disabled", true);
+        var idInp = $(this).find("input").attr('id')
+        console.log(idInp);
+        $("#img"+idInp).popover('disable');
     });
 }
 
@@ -62,8 +91,11 @@ function enableHotels(objCity){
         if(objCity["hotels"].length==i) {
             return false;
         }
-        if (objCity["hotels"][i]["id"] == $(this).find("input").attr('id')) {
+        var idInp = $(this).find("input").attr('id');
+        if (objCity["hotels"][i]["id"] == idInp) {
             $(this).find("input").removeAttr("disabled");
+            $("#img"+idInp).popover('toggleEnabled');
+            console.log(idInp);
             i++;
         }
     });
@@ -78,18 +110,18 @@ $('.trans').click(function() {
 		var place = parseInt(idd.substring(3, idd.length))-1;
 		transValue=$ticketPrice[place];
 		var objCity = data[place];
-		writeTotal();
         disableHotels();
 		enableHotels(objCity);
         events.push([IDSession, "CheckCiudad", $(this).attr('id'), secs]);
-        console.log(events);
 	}else{
 		transValue= 0;
         disableHotels();
-		writeTotal();
         events.push([IDSession, "UncheckCiudad", $(this).attr('id'), secs]);
-        console.log(events);
 	}
+    slider.value = "1";
+    output.innerHTML = "1";//when clicks a city the days go back to 1
+    document.getElementById('food').value=1000; //when clicks a city the food budget go back to 1000
+    writeTotal();
 });
 
 $('.hotel').click(function() {
@@ -100,15 +132,15 @@ $('.hotel').click(function() {
 		var idd= $(this).attr('id');
         var place = parseInt(idd.substring(3, idd.length))-1;
 		hotelValue=$hotelsPrice[place];
-		writeTotal();
         events.push([IDSession, "CheckHotel", $(this).attr('id'), secs]);
-        console.log(events);
 	}else{
 		hotelValue= 0;
-		writeTotal();
         events.push([IDSession, "UncheckHotel", $(this).attr('id'), secs]);
-        console.log(events);
 	}
+    slider.value = "1";
+    output.innerHTML = "1"; //when clicks a hotel the days go back to 1
+    document.getElementById('food').value=1000; //when clicks a hotel the food budget go back to 1000
+    writeTotal();
 });
 
 function writeTotal(){
@@ -117,7 +149,6 @@ function writeTotal(){
 	var presu = presuIni - total ;
 	$totalValueElem.html(total.toLocaleString());
 	$presuValueElem.html(presu.toLocaleString());
-    $("#food").prop('max',presu);
     //effects if the badget is less than 0
 	/*if(presu<0) {
         $presuValueElem.css("color", "red");
@@ -130,8 +161,6 @@ function writeTotal(){
     }*/
 }
 
-var slider = document.getElementById("days");
-var output = document.getElementById("demo");
 output.innerHTML = slider.value;
 slider.oninput = function() {
     var d = new Date();
@@ -142,7 +171,6 @@ slider.oninput = function() {
     writeTotal();
     changeStep();
     events.push([IDSession, "ChangeDias", currentDays, secs]);
-    console.log(events);
 };
 
 function changeStep() {
@@ -157,7 +185,6 @@ $('#food').on('input', function() {
     foodValue = parseInt($(this).val());
     writeTotal();
     events.push([IDSession, "ChangeComida", $(this).val(), secs]);
-    console.log(events);
 });
 
 
@@ -192,3 +219,46 @@ function sendData(){
         success: function(dat) { console.log(dat); }
     });
 }
+
+
+/******** TIMER *** */
+document.getElementById('timer').innerHTML =
+    15 + ":" + 00;
+startTimer();
+
+function startTimer() {
+    var presentTime = document.getElementById('timer').innerHTML;
+    var timeArray = presentTime.split(/[:]+/);
+    var m = timeArray[0];
+    var s = checkSecond((timeArray[1] - 1));
+    if(s==59){m=m-1}
+    //if(m<0){alert('timer completed')}
+
+    document.getElementById('timer').innerHTML =
+        m + ":" + s;
+    setTimeout(startTimer, 1000);
+}
+
+function checkSecond(sec) {
+    if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+    if (sec < 0) {sec = "59"};
+    return sec;
+}
+
+setTimeout(function(){
+    $("#timeoutModal").modal('show');
+},900000);
+
+
+function validate(){
+    var total = transValue+hotelTotalValue+foodValue;
+    var presu = presuIni - total ;
+    if(presu<0) {
+        alert("¡Error! Ha sobrepasado el presupuesto");
+        return false;
+    }else{
+        return true;
+    }
+}
+
+$('#mainform').submit(validate);
