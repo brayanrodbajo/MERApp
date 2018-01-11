@@ -26,7 +26,6 @@
     var iniTime = d.getTime();
 
     var IDSession = {{id}};
-    console.log(IDSession);
 </script>
 	<title>Plan de vacaciones</title>
 <style>
@@ -37,29 +36,28 @@
 <audio src="{{music_path}}" loop autoplay>
     <p>Si está leyendo esto, su navegador no soporta el archivo de audio.</p>
 </audio>
-<div class="site-wrapper">
-<div class="column-fixed">
-  <div class="total">
-  <h3>Total parcial:</h3>
-    <p><b>COP$<span class="totalValue">0</span></b></p>
-  <h3>Presupuesto restante:</h3>
-    <p><b>COP$<span class="presuValue">2.000.000</span></b></p>
-  </div>
-  </div>
-</div>
 <div class="container">
     <h1 class="display-3">Plan de vacaciones</h1>
     <div>
-        <form method="post">
-			<h2>El Mejor Plan para Vacaciones</h2>
-			<p>A continuación usted podrá planear su próximo viaje de vacaciones. Usted va a recibir un
-			dinero para invertir en su viaje y podrá tomar decisiones acerca del lugar, transporte, hospedaje y
-			alimentación. Usted puede invertir todo el dinero disponible para el viaje o puede decidir ahorrar
-			parte de él. Lo importante es que sus decisiones lo lleven al Mejor Plan de Vacaciones.</p>
-			<p>Usted va a planear su viaje de manera independiente, pero al mismo tiempo hay otras personas
-			haciendo su propio plan. Al final, gana el jugador que tenga el Mejor Plan de Vacaciones.</p>
-			<p>¡Disfrutalo!</p>
-		    <h2>Presupuesto: COP $2.000.000</h2>
+        <form id="mainform" method="post">
+            <div class="header">
+                <div class="timerContainer"><span id="timer"></span></div>
+                <div class="total">
+                    <h3>Total parcial:</h3>
+                    <p><b>COP$<span class="totalValue">0</span></b></p>
+                    <h3>Presupuesto restante:</h3>
+                    <p><b>COP$<span class="presuValue">2.000.000</span></b></p>
+                </div>
+                <h2>El Mejor Plan para Vacaciones</h2>
+                <p>A continuación usted podrá planear su próximo viaje de vacaciones. Usted va a recibir un
+                dinero para invertir en su viaje y podrá tomar decisiones acerca del lugar, transporte, hospedaje y
+                alimentación. Usted puede invertir todo el dinero disponible para el viaje o puede decidir ahorrar
+                parte de él. Lo importante es que sus decisiones lo lleven al Mejor Plan de Vacaciones.</p>
+                <p>Usted va a planear su viaje de manera independiente, pero al mismo tiempo hay otras personas
+                haciendo su propio plan. Al final, gana el jugador que tenga el Mejor Plan de Vacaciones.</p>
+                <p>¡Disfrutalo!</p>
+                <h2>Presupuesto: COP $2.000.000</h2>
+            </div>
             <div class="form-group sec">
             <h3>Lugar</h3>
                 <div id="groupcities">
@@ -95,6 +93,26 @@
         </form>
     </div>
 </div>
+<!-- Modal Timeout -->
+<div class="modal fade" id="timeoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="alert alert-danger modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¡Ha expirado el tiempo!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Se le ha acabado el tiempo. Por favor, dele clic al botón de finalizar.
+            </div>
+            <div class="modal-footer">
+                <form method="post">
+                    <button type="submit" class="btn btn-primary">Finalizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 <script src="/static/js/index.js"></script>
