@@ -1,21 +1,14 @@
 
 
-.column-fixed {
-    float: left;
-    position: fixed;
-    top: 25%;
-    width: 230px;
-}
-
 .total{
   padding: 30px;
   background-color: #f5f5f5;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    text-align: center;
 }
 
 .container{
     max-width: 910px;
-	margin-left: 230px;
 }
 
 .sec {
@@ -130,4 +123,14 @@ input:enabled + label  img:hover {
   box-shadow: 0 0 5px #333;
   z-index: -1;
   opacity: 1;
+}
+
+.timerContainer {
+    text-align: center;
+}
+
+#timer {
+    font-size: xx-large;
+    border: 2px solid red;
+    color: red;
 }
