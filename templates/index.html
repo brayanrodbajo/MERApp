@@ -24,7 +24,7 @@
     var data = {{data| tojson}};
     var d = new Date();
     var iniTime = d.getTime();
-
+    var profName = "{{prof_name}}";
     var IDSession = {{id}};
 </script>
 	<title>Plan de vacaciones</title>
@@ -49,13 +49,12 @@
                     <p><b>COP$<span class="presuValue">2.000.000</span></b></p>
                 </div>
                 <h2>El Mejor Plan para Vacaciones</h2>
-                <p>A continuación usted podrá planear su próximo viaje de vacaciones. Usted va a recibir un
-                dinero para invertir en su viaje y podrá tomar decisiones acerca del lugar, transporte, hospedaje y
-                alimentación. Usted puede invertir todo el dinero disponible para el viaje o puede decidir ahorrar
-                parte de él. Lo importante es que sus decisiones lo lleven al Mejor Plan de Vacaciones.</p>
-                <p>Usted va a planear su viaje de manera independiente, pero al mismo tiempo hay otras personas
-                haciendo su propio plan. Al final, gana el jugador que tenga el Mejor Plan de Vacaciones.</p>
-                <p>¡Disfrutalo!</p>
+                <p>Para la siguiente actividad suponga que usted es un agente de viajes que tiene la tarea de diseñar
+                    el mejor plan de vacaciones con un presupuesto máximo de 2.000.000 de pesos pensando en la persona
+                    que describe el siguiente perfil.
+                    Note que usted tiene un máximo de 15 minutos para realizar esta actividad.</p>
+                <p>Perfil {{prof_name}}:</p>
+                <p>{{prof}}</p>
                 <h2>Presupuesto: COP $2.000.000</h2>
             </div>
             <div class="form-group sec">
@@ -94,8 +93,8 @@
     </div>
 </div>
 <!-- Modal Timeout -->
-<div class="modal fade" id="timeoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="timeoutModal"  data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="alert alert-danger modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">¡Ha expirado el tiempo!</h5>

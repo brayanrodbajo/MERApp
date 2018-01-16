@@ -134,3 +134,7 @@ input:enabled + label  img:hover {
     border: 2px solid red;
     color: red;
 }
+
+.modal-header .close {
+    display:none;
+}

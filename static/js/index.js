@@ -20,6 +20,8 @@ var $ticketPrice = [];
 var $hotelsPrice = [];
 var $totalValueElem = $('.totalValue');
 var $presuValueElem = $('.presuValue');
+var selectedCity = false;
+var idSelectedHotel = 'none';
 var slider = document.getElementById("days");
 var output = document.getElementById("demo");
 var transValue = 0;
@@ -110,11 +112,14 @@ $('.trans').click(function() {
 		var place = parseInt(idd.substring(3, idd.length))-1;
 		transValue=$ticketPrice[place];
 		var objCity = data[place];
+		selectedCity = true;
+		idSelectedHotel = 'none';
         disableHotels();
 		enableHotels(objCity);
-        events.push([IDSession, "CheckCiudad", $(this).attr('id'), secs]);
+        events.push([IDSession, "CheckCiudad", idd, secs]);
 	}else{
 		transValue= 0;
+		selectedCity = false;
         disableHotels();
         events.push([IDSession, "UncheckCiudad", $(this).attr('id'), secs]);
 	}
@@ -130,11 +135,13 @@ $('.hotel').click(function() {
     var secs = parseInt((curTime - iniTime)/1000);
 	if (this.checked) {
 		var idd= $(this).attr('id');
+		idSelectedHotel = idd;
         var place = parseInt(idd.substring(3, idd.length))-1;
 		hotelValue=$hotelsPrice[place];
         events.push([IDSession, "CheckHotel", $(this).attr('id'), secs]);
 	}else{
 		hotelValue= 0;
+		idSelectedHotel = 'none';
         events.push([IDSession, "UncheckHotel", $(this).attr('id'), secs]);
 	}
     slider.value = "1";
@@ -257,7 +264,25 @@ function validate(){
         alert("¡Error! Ha sobrepasado el presupuesto");
         return false;
     }else{
-        return true;
+        if(idSelectedHotel==='none' || !selectedCity){
+            alert("¡Error! No ha seleccionado ciudad y/o hotel");
+            return false;
+        }else{
+            var idd = parseInt(idSelectedHotel.split('b')[1])-1; //the string from the letter 'b' is the position
+            var posc = parseInt(idd/4, 10);
+            var posh = idd%4;
+            console.log(idd);
+            console.log(posh);
+            console.log(posc);
+            var profData = data[posc]["hotels"][posh]["profile"];
+            console.log(profData);
+            if(profData !=profName){
+                alert("Inténtelo de nuevo, no ha acertado en su respuesta");
+                return false;
+            }else{
+                return true;
+            }
+        }
     }
 }
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, render_template, jsonify, redirect
-import os, sys, random, datetime, glob
+import os, sys, random, datetime, glob, random
 import csv
 
 reload(sys)
@@ -21,7 +21,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }, {
                     "id": "hcb2",
                     "image": "/static/images/cartagena/hotels/aptosmorros.jpg",
@@ -32,7 +33,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "rumbero"
                 }, {
                     "id": "hcb3",
                    "image": "/static/images/cartagena/hotels/hotelmakondo.jpeg",
@@ -43,7 +45,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }, {
                     "id": "hcb4",
                     "image": "/static/images/cartagena/hotels/casanadiasandro.jpg",
@@ -54,7 +57,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+            "profile": "nothing"
                 }
             ],
     },
@@ -73,7 +77,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "estudiante"
                 }, {
                     "id": "hcb6",
                     "image": "/static/images/pavas/hostalelmarquez.jpg",
@@ -84,7 +89,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }, {
                     "id": "hcb7",
                    "image": "/static/images/pavas/hotelvillasaman.jpg",
@@ -95,7 +101,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }, {
                     "id": "hcb8",
                     "image": "/static/images/pavas/recintodelossuenos.jpg",
@@ -106,7 +113,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }
             ],
     },
@@ -125,7 +133,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }, {
                     "id": "hcb10",
                     "image": "/static/images/honda/hotelacuaticoaguasol.jpg",
@@ -136,7 +145,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }, {
                     "id": "hcb11",
                    "image": "/static/images/honda/lapiragua.jpg",
@@ -147,7 +157,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }, {
                     "id": "hcb12",
                     "image": "/static/images/honda/hotellaspiscinas.jpg",
@@ -158,7 +169,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }
             ],
     },
@@ -178,7 +190,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }, {
                     "id": "hcb14",
                     "image": "/static/images/medellin/lacampanahotel.jpg",
@@ -189,7 +202,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }, {
                     "id": "hcb15",
                    "image": "/static/images/medellin/thecharleelifestyle.jpg",
@@ -200,7 +214,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "nothing"
                 }, {
                     "id": "hcb16",
                     "image": "/static/images/medellin/estelarblue.jpg",
@@ -211,7 +226,8 @@ data = [{
                         "Barra libre",
                         "Recepción abierta 24 horas",
                         "Pool party todas las noches",
-                    ]
+                    ],
+                    "profile": "familia"
                 }
             ],
     },
@@ -220,6 +236,13 @@ data = [{
 global id_session
 global fname
 fname = ""
+
+def define_prof():
+    rum = ("rumbero", "Esta persona es un hombre de 20 años que busca unas vacaciones de rumba en las que pueda disfrutar del alcohol y el cigarrillo. Él espera que su lugar de hospedaje tenga recepción 24 horas, casino, discoteca un cuarto para él solo, que ofrezca diversión para adultos y pool party todas las noches. Además, desearía que el hotel esté ubicada en la zona rosa más importante del área. Espera gastar lo menos posible en comida.")
+    fam = ("familia", "Esta es una familia constituida por el padre, la madre, una niña de seis años y un bebé de un año. Ellos esperan que en el lugar de hospedaje no se permita fumar, tenga piscina para niños con recreacionista, estacionamiento de auto y desayuno gratis. En la habitación requieren una cama doble, un sofá cama y una cuna para bebé. Además, desean tener presupuesto para comer frecuentemente fuera del hotel.")
+    est = ("estudiante", "Ella es una estudiante universitaria de 20 años que viaja de vacaciones sola y espera llegar a un lugar tranquilo en el que no hayan niños o niñas, con televisión y el cual tenga internet WiFi gratis con amplia cobertura. Espera que el lugar ofrezca espacios de relajación y diversión como Spá y gimnasio. Además, desea conocer los alrededores del lugar, esperando que se ofrezca transporte gratuito. Ella desea contar con desayuno gratuito y tener suficiente presupuesto para conocer la cultura culinaria del sector.")
+    list = [rum, fam, est]
+    return random.choice(list)
 
 def get_id():
     id_session=1
@@ -245,7 +268,8 @@ def load():
         id_session = get_id()
         print id_session
         music_path = choose_song('A')
-        return render_template('index.html', data= data, id=id_session, music_path=music_path)
+        (prof_name, prof) = define_prof()
+        return render_template('index.html', data= data, id=id_session, music_path=music_path, prof_name=prof_name, prof=prof)
     if request.method == 'POST':
         print 'Entro en POST'
         write_id() # the events file has been created
