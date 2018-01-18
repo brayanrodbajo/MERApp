@@ -138,3 +138,16 @@ input:enabled + label  img:hover {
 .modal-header .close {
     display:none;
 }
+
+.icon{
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 25px;
+    margin: 5px;
+}
+
+.iconcontainer{
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+}

@@ -17,10 +17,11 @@ data = [{
                     "name": "Hotel Isla del Pirata",
                     "costo": 1221910,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "notallowedsmoking.png",
+                        "openbar.png",
+                        "reception.png",
+                        "poolparty.jpg",
+                        "disco.png"
                     ],
                     "profile": "nothing"
                 }, {
@@ -29,10 +30,11 @@ data = [{
                     "name": "Apartamentos Morros Cartagena",
                     "costo": 452128,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "allowedsmoking.png",
+                        "openbar.png",
+                        "reception.png",
+                        "poolparty.jpg",
+                        "disco.png"
                     ],
                     "profile": "rumbero"
                 }, {
@@ -41,10 +43,11 @@ data = [{
                    "name": "Hotel Makondo",
                    "costo": 1221910,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "breakfast.png",
+                        "allowedsmoking.png",
+                        "casino.png",
+                        "clown.jpeg",
+                        "cradle.jpg",
                     ],
                     "profile": "nothing"
                 }, {
@@ -53,12 +56,13 @@ data = [{
                     "name": "Hotel Casa Nadia & Sandro",
                     "costo": 452128,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "allowedsmoking.png",
+                        "clown.jpeg",
+                        "disco.png",
+                        "kids.png",
+                        "moto.png",
                     ],
-            "profile": "nothing"
+                    "profile": "nothing"
                 }
             ],
     },
@@ -73,10 +77,11 @@ data = [{
                     "name": "Cabañas La Primavera",
                     "costo": 160000,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "wifi.png",
+                        "notkids.jpeg",
+                        "breakfast.png",
+                        "moto.png",
+                        "spa.svg",
                     ],
                     "profile": "estudiante"
                 }, {
@@ -85,10 +90,11 @@ data = [{
                     "name": "Hostal El Marquez",
                     "costo": 120000,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "casino.png",
+                        "disco.png",
+                        "poolparty.jpg",
+                        "notkids.jpeg",
+                        "breakfast.png",
                     ],
                     "profile": "nothing"
                 }, {
@@ -97,10 +103,11 @@ data = [{
                    "name": "Hotel Villa Samán",
                    "costo": 130000,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "parking.png",
+                        "openbar.png",
+                        "tv.png",
+                        "reception.png",
+                        "wifi.png"
                     ],
                     "profile": "nothing"
                 }, {
@@ -109,10 +116,11 @@ data = [{
                     "name": "Hotel Recito De Los Sueños",
                     "costo": 45128,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "parking.png",
+                        "notallowedsmoking.png",
+                        "notkids.jpeg",
+                        "reception.png",
+                        "spa.svg",
                     ],
                     "profile": "nothing"
                 }
@@ -129,22 +137,24 @@ data = [{
                     "name": "El Virrey Hotel Boutique",
                     "costo": 100555,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "moto.png",
+                        "notkids.jpeg",
+                        "tv.png",
+                        "wifi.png",
+                        "clown.jpeg",
                     ],
                     "profile": "nothing"
                 }, {
                     "id": "hcb10",
                     "image": "/static/images/honda/hotelacuaticoaguasol.jpg",
-                    "name": "Hotel y Parque Acuatico Agua Sol Alegría",
+                    "name": "Hotel y Parque Acuático Agua Sol Alegría",
                     "costo": 148000,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "notallowedsmoking.png",
+                        "kids.png",
+                        "kidpool.png",
+                        "cradle.jpg",
+                        "wifi.png",
                     ],
                     "profile": "nothing"
                 }, {
@@ -153,10 +163,11 @@ data = [{
                    "name": "Hotel la Piragua",
                    "costo": 50000,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "breakfast.png",
+                        "reception.png",
+                        "tv.png",
+                        "openbar.png",
+                        "parking.png",
                     ],
                     "profile": "nothing"
                 }, {
@@ -165,10 +176,11 @@ data = [{
                     "name": "Hotel Las Piscinas",
                     "costo": 125000,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "allowedsmoking.png",
+                        "clown.jpeg",
+                        "casino.png",
+                        "disco.png",
+                        "kidpool.png",
                     ],
                     "profile": "nothing"
                 }
@@ -186,10 +198,11 @@ data = [{
                     "name": "Hostal Casa Prado",
                     "costo": 25000,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "kids.png",
+                        "kidpool.png",
+                        "notallowedsmoking.png",
+                        "clown.jpeg",
+                        "casino.png",
                     ],
                     "profile": "nothing"
                 }, {
@@ -198,10 +211,11 @@ data = [{
                     "name": "La Campana Hotel Boutique",
                     "costo": 157475,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "openbar.png",
+                        "poolparty.jpg",
+                        "spa.svg",
+                        "tv.png",
+                        "wifi.png"
                     ],
                     "profile": "nothing"
                 }, {
@@ -210,10 +224,11 @@ data = [{
                    "name": "The Charlee Lifestyle",
                    "costo": 579223,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "wifi.png",
+                        "reception.png",
+                        "notkids.jpeg",
+                        "breakfast.png",
+                        "disco.png",
                     ],
                     "profile": "nothing"
                 }, {
@@ -222,10 +237,11 @@ data = [{
                     "name": "Hotel Estelar Blue",
                     "costo": 226950,
                     "amenities": [
-                        "Se permite fumar",
-                        "Barra libre",
-                        "Recepción abierta 24 horas",
-                        "Pool party todas las noches",
+                        "notallowedsmoking.png",
+                        "kidpool.png",
+                        "parking.png",
+                        "breakfast.png",
+                        "cradle.jpg",
                     ],
                     "profile": "familia"
                 }

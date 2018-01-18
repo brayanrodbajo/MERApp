@@ -40,10 +40,11 @@ function setCities(){
 }
 
 function listAmenities(amenities){
-    var res = "";
+    var imgs = "";
     for (var i = 0; i<amenities.length; i++){
-        res+="<br>"+amenities[i];
+        imgs+='<img class="icon" src="static/images/'+amenities[i]+'"/>';
     }
+    var res='<div class="iconcontainer"><h3>Características</h3>'+imgs+'</div>'
     return res;
 }
 
@@ -51,21 +52,11 @@ function setHotels(){
     var count=0;
     for(var i=0; i< data.length; i++) {
         for (var j = 0; j < data[i]["hotels"].length; j++) {
-            var dp = "left"
-            if (j % 2 == 0 || j==0){
-                dp = "right";
-            }
             count++;
             $("#grouphotels ul").append('<li><input class="hotel" type="checkbox" id="'+data[i]["hotels"][j]["id"]+'" name="fooby2"  value="'+data[i]["hotels"][j]["id"]+'" disabled/>' +
                 '            <label for="'+data[i]["hotels"][j]["id"]+'">'+
                 '<img  id="img'+data[i]["hotels"][j]["id"]+'" ' +
-                'data-html="true"'+
-                'title="Características" ' +
-                'data-toggle="popover" ' +
-                'data-trigger="hover" ' +
-                'data-placement="'+dp+'" ' +
-                'data-content="<ul>'+listAmenities(data[i]["hotels"][j]["amenities"])+'</ul>" ' +
-                'src='+data[i]["hotels"][j]["image"]+'/>' +
+                 'src='+data[i]["hotels"][j]["image"]+'/>' +
                 '<br>'+data[i]["hotels"][j]["name"]+'<br>Costo/noche: COP $'+data[i]["hotels"][j]["costo"].toLocaleString()+
                 '</label>' +
                 '</li>');
@@ -77,6 +68,21 @@ function setHotels(){
 setCities();
 setHotels();
 
+for(var i=0; i< data.length; i++) {
+    for (var j = 0; j < data[i]["hotels"].length; j++) {
+        var dp = "left"
+        if (j % 2 == 0 || j==0){
+            dp = "right";
+        }
+        $('#img'+data[i]["hotels"][j]["id"]).popover({
+            html: true,
+            trigger: 'hover',
+            placement: dp,
+            content: listAmenities(data[i]["hotels"][j]["amenities"])
+          });
+        $('#img'+data[i]["hotels"][j]["id"]).popover('disable');
+    }
+}
 
 function disableHotels(){
     $( "#grouphotels li" ).each(function( index ) {
