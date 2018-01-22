@@ -5,17 +5,21 @@
 #
 
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM ubuntu:latest
+
+MAINTANER Brayan Rodriguez "brayanrodbajo@gmail.com"
 
 # Install Python.
 RUN \
-  apt-get update && \
-  apt-get install -y python python-dev python-pip python-virtualenv && \
-  pip install flask && \
-  rm -rf /var/lib/apt/lists/*
+  apt-get update -y && \
+  apt-get install -y python python-dev python-pip python-virtualenv build-essential
+  
+COPY . /MERApp 
+WORKDIR /MERApp 
 
-# Define working directory.
-WORKDIR /data
+# Install Flask
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python"]
 
 # Define default command.
-CMD ["bash"]
+CMD ["run.py"]
