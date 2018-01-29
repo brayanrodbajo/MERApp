@@ -34,11 +34,11 @@
 </head>
 <body >
 <audio src="{{music_path}}" loop autoplay>
-    <p>Si está leyendo esto, su navegador no soporta el archivo de audio.</p>
+    <p>Su navegador no soporta el archivo de audio.</p>
 </audio>
-<div class="container">
+< class="container">
     <h1 class="display-3">Plan de vacaciones</h1>
-    <div>
+    <table>
         <form id="mainform" method="post">
             <div class="header">
                 <div class="timerContainer"><span id="timer"></span></div>
@@ -57,6 +57,70 @@
                 <p>{{prof}}</p>
                 <h2>Presupuesto: COP $2.000.000</h2>
             </div>
+            <table class="amenities">
+                <tr>
+                    <td>
+                        <img class="icon" src="static/images/allowedsmoking.png"> Permitido fumar.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/breakfast.png"> Incluye desayuno.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/casino.png"> Casino.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/clown.jpeg"> Recreacionista.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/cradle.jpg"> Cuna.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="icon" src="static/images/disco.png"> Discoteca.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/kids.png"> Permitidos los niños.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/kidpool.png"> Piscina para niños.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/moto.png"> Alquiler de motocicletas.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/notallowedsmoking.png"> Prohibido fumar.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="icon" src="static/images/notkids.jpeg"> Prohibido entrada de niños.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/openbar.png"> Barra libre.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/parking.png"> Estacionamiento gratis.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/poolparty.jpg"> Pool party.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="icon" src="static/images/reception.png"> Recepción 24 horas.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/spa.svg"> Spá.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/tv.png"> Cuarto con televisión.
+                    </td>
+                    <td>
+                        <img class="icon" src="static/images/wifi.png"> Wifi.
+                    </td>
+                </tr>
+            </table>
             <div class="form-group sec">
             <h3>Lugar</h3>
                 <div id="groupcities">
