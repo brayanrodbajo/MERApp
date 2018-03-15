@@ -1,20 +1,23 @@
 #
 # Python Dockerfile
 #
-# https://github.com/dockerfile/python
+# https://github.com/brayanrodbajo/MERApp
 #
 
 # Pull base image.
 FROM ubuntu:latest
 
-MAINTANER Brayan Rodriguez "brayanrodbajo@gmail.com"
+MAINTAINER Brayan Rodriguez "brayanrodbajo@gmail.com"
 
-# Install Python.
+# Install Python and Git.
 RUN \
   apt-get update -y && \
-  apt-get install -y python python-dev python-pip python-virtualenv build-essential
-  
-COPY . /MERApp 
+  apt-get install -y python python-dev python-pip python-virtualenv build-essential git
+
+#Clone Repository  
+RUN \
+  git clone https://github.com/brayanrodbajo/MERApp
+
 WORKDIR /MERApp 
 
 # Install Flask
