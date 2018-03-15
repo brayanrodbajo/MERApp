@@ -18,22 +18,18 @@
 
 		var IDSession = {{id}};
 		console.log(IDSession);
-		var path = "{{path}}";
 	</script>
 </head>
 <body>
     <div class="container">
         <h1 class="display-3">Plan de vacaciones</h1>
-        <p>Desliza el punto verde que se encuentra en la siguiente barra lateral e identifica en qué punto el actor cambia de estado de ánimo.</p>
-        <div class="face-container">
-            <input class="slider" id="valR" type="range" min="1" max="60" value="0" step="1" oninput="showVal(this.value)" onchange="showVal(this.value)" />
-            <img id="img-video">
-        </div>
+        <p>Por favor, realice la siguiente encuesta:</p>
+        <p> Su IDSession es: {{id}}</p>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?embedded=true" width="900" height="600" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
         <form method="post">
-            <button onclick="sendData()" type="submit" class="btn btn-primary active">Siguiente</button>
+            <button onclick="sendData()" type="submit" class="btn btn-primary active">Finalizar</button>
         </form>
     </div>
 
 </body>
-<script src="/static/js/satisfaction.js"></script>
 </html>

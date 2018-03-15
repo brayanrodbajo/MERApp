@@ -323,6 +323,13 @@ def joke_loading():
 def satisfaction():
     if request.method == 'GET':
         return render_template('satisfaction.html', id=id_session, path='/static/images/satisfaction/man1/')
+    if request.method == 'POST':
+        return redirect('/survey')
+
+@app.route('/survey',  methods=['GET', 'POST'])
+def survey():
+    if request.method == 'GET':
+        return render_template('survey.html', id=id_session)
 
 
 if __name__ == '__main__':
