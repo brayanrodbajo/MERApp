@@ -26,10 +26,28 @@
         <p>Por favor, realice la siguiente encuesta:</p>
         <p> Su IDSession es: {{id}}</p>
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?embedded=true" width="900" height="600" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
-        <form method="post">
-            <button onclick="sendData()" type="submit" class="btn btn-primary active">Finalizar</button>
-        </form>
+        <!-- Trigger/Open the Modal -->
+        <div>
+            <button onclick="document.getElementById('exampleModal').style.display='block'"
+                    class="btn btn-primary">Finalizar</button>
+        </div>
     </div>
-
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Si contestó la encuesta hasta el final dé clic en Finalizar.
+                    De lo contrario, por favor, dé clic en regresar y conteste la encuesta en su totalidad.
+                </div>
+                <div class="modal-footer">
+                    <form method="post">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Regresar</button>
+                        <button type="submit" class="btn btn-primary">Finalizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
