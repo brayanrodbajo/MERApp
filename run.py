@@ -250,9 +250,12 @@ data = [{
   ]
 
 global id_session
-global fname
-fname = ""
+id_session=1
+global events_fname
+events_fname = ""
 folder_data = "data/"
+global id_file
+id_file = folder_data+"id_file.csv"
 def define_prof():
     rum = ("rumbero", "Esta persona es un hombre de 20 años que busca unas vacaciones de rumba en las que pueda disfrutar del alcohol y el cigarrillo. Él espera que su lugar de hospedaje tenga recepción 24 horas, casino, discoteca un cuarto para él solo, que ofrezca diversión para adultos y pool party todas las noches. Además, desearía que el hotel esté ubicada en la zona rosa más importante del área. Espera gastar lo menos posible en comida.")
     fam = ("familia", "Esta es una familia constituida por el padre, la madre, una niña de seis años y un bebé de un año. Ellos esperan que en el lugar de hospedaje no se permita fumar, tenga piscina para niños con recreacionista, estacionamiento de auto y desayuno gratis. En la habitación requieren una cama doble, un sofá cama y una cuna para bebé. Además, desean tener presupuesto para comer frecuentemente fuera del hotel.")
@@ -260,13 +263,11 @@ def define_prof():
     list = [rum, fam, est]
     return random.choice(list)
 
-def get_id():
+def get_id(): #sums 1 to the last id_session in id_file
     id_session=1
-    print(os.path.isfile(folder_data+"id_file.csv"))
-    if os.path.isfile(folder_data+"id_file.csv"):
-        with open(folder_data+"id_file.csv", 'r') as f:
+    if os.path.isfile(id_file):
+        with open(id_file, 'r') as f:
             last_row = list(csv.reader(f))[-1]
-            print last_row
             id_session = int(last_row[0])+1
     return id_session
 
@@ -293,21 +294,23 @@ def load():
         # return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
 
 def write_id():
-    with open(folder_data+'id_file.csv', 'a') as file:
-        file.write("\n"+str(id_session)+", "+fname)
+    with open(id_file, 'a') as file:
+        file.write("\n" + str(id_session) +", " + events_fname)
 
 @app.route('/events',  methods=['POST'])
 def load_events():
-    global fname
-    fname = folder_data+'events'+str(id_session)+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S").replace(" ", "")+'.csv'
+    global events_fname
+    events_fname = folder_data + 'events' + str(id_session) + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S").replace(" ", "") + '.csv'
     data = request.get_json()
     events = data['events']
-    for file in glob.glob('events'+str(id_session)+'*'):
-        fname=file
-    if not os.path.isfile(fname): #if the file does not exist, the header must be preposed
+    exists = False #if the file for this ID exists
+    for file in glob.glob(folder_data+'events'+str(id_session)+'*'): #if a file with this id_session exists replace the file name with the existing one
+        events_fname=file
+        exists= True
+    if exists:
         header = [["IDSession", "TipoEvento", "Valor", "Tiempo(s)"]]
         events = header + events
-    with open(fname, 'a') as f:
+    with open(events_fname, 'a') as f:
         writer = csv.writer(f)
         writer.writerows(events)
     return 'OK Events'
@@ -330,6 +333,8 @@ def satisfaction():
 def survey():
     if request.method == 'GET':
         return render_template('survey.html', id=id_session)
+    if request.method == 'POST':
+        return redirect('/')
 
 
 if __name__ == '__main__':
