@@ -28,7 +28,7 @@
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?embedded=true" width="900" height="600" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
         <!-- Trigger/Open the Modal -->
         <div>
-            <button onclick="document.getElementById('exampleModal').style.display='block'"
+            <button type="button" data-toggle="modal" data-target="#exampleModal"
                     class="btn btn-primary">Finalizar</button>
         </div>
     </div>
@@ -37,8 +37,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <p>Si contestó la encuesta hasta el final dé clic en Finalizar.
-                    De lo contrario, por favor, dé clic en regresar y conteste la encuesta en su totalidad.
+                    <p>Si contestó la encuesta hasta el final, dé clic en Finalizar.
+                    De lo contrario, por favor, dé clic en Regresar y conteste la encuesta en su totalidad.
                 </div>
                 <div class="modal-footer">
                     <form method="post">
