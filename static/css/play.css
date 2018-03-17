@@ -1,0 +1,13 @@
+#play{
+    background-image: url("../images/start.gif");
+    position:absolute;
+    width: 450px;
+    height: 178px;
+    left:50%;
+    top:50%;
+    margin-left: -225px;
+    margin-top: -89px;
+    cursor: pointer;
+    background-color: white;
+    border-width: 0;
+}

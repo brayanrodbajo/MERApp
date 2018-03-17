@@ -277,8 +277,16 @@ def choose_song(sti = 'A'):
     print music_file_path
     return "/" + folder + "/" + music_file_path
 
+
 @app.route('/',  methods = ['GET', 'POST'])
-def load():
+def play():
+    if request.method == 'GET':
+        return render_template('play.html')
+    if request.method == 'POST':
+        return redirect('/index')
+
+@app.route('/index',  methods = ['GET', 'POST'])
+def index():
     if request.method == 'GET':
         print 'Entro en GET'
         global id_session
@@ -307,7 +315,7 @@ def load_events():
     for file in glob.glob(folder_data+'events'+str(id_session)+'*'): #if a file with this id_session exists replace the file name with the existing one
         events_fname=file
         exists= True
-    if exists:
+    if not exists:
         header = [["IDSession", "TipoEvento", "Valor", "Tiempo(s)"]]
         events = header + events
     with open(events_fname, 'a') as f:
