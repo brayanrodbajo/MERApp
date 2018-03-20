@@ -22,6 +22,7 @@ WORKDIR /MERApp
 
 # Install Flask
 RUN pip install -r requirements.txt
+VOLUME ["/data"]
 ENTRYPOINT ["python"]
 
 # Define default command.
