@@ -1,45 +1,52 @@
-#
-# Python Dockerfile
-#
-# https://github.com/brayanrodbajo/MERApp
-#
+FROM centos:7 
 
-# Pull base image.
-FROM ubuntu:latest
+MAINTAINER user
 
-MAINTAINER Brayan Rodriguez "brayanrodbajo@gmail.com"
+ENV container docker 
+
+RUN yum -y update; yum clean all;
+
+RUN yum -y install systemd deltarpm epel-release; yum clean all; 
+
+RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \ 
+rm -f /lib/systemd/system/multi-user.target.wants/*;\ 
+rm -f /etc/systemd/system/*.wants/*;\ 
+rm -f /lib/systemd/system/local-fs.target.wants/*; \ 
+rm -f /lib/systemd/system/sockets.target.wants/*udev*; \ 
+rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \ 
+rm -f /lib/systemd/system/basic.target.wants/*;\ 
+rm -f /lib/systemd/system/anaconda.target.wants/*; 
 
 # Install Python and Git.
-RUN \
-  apt-get update -y && \
-  apt-get install -y python python-dev python-pip python-virtualenv build-essential git
+RUN yum install -y python \
+    python-dev python-pip \
+    python-virtualenv git \
+    openssh-server openssh-clients \
+    && yum -y groupinstall base "Development Tools"
 
-
-#SSH
-RUN apt-get update && apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
-RUN echo 'root:screencast' | chpasswd
-RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-
-# SSH login fix. Otherwise user is kicked off after login
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-
-ENV NOTVISIBLE "in users profile"
-RUN echo "export VISIBLE=now" >> /etc/profile
-
-EXPOSE 22
-
-
+RUN systemctl enable sshd
 
 #Clone Repository  
-RUN \
-  git clone https://github.com/brayanrodbajo/MERApp
+RUN git clone https://github.com/brayanrodbajo/MERApp
 
-WORKDIR /MERApp 
+WORKDIR /MERApp
 
 # Install Flask
 RUN pip install -r requirements.txt
-VOLUME ["/data"]
 
-# Define default command.
-CMD ["sh start.sh"]
+RUN echo -e '[Unit]\n\
+After=sshd.service\n\
+\n\
+[Service]\n\
+ExecStart=/usr/bin/python /MERApp/run.py\n\
+\n\
+[Install]\n\
+WantedBy=default.target' > /etc/systemd/system/web_service.service
+
+RUN systemctl enable web_service.service  
+
+VOLUME [ "/sys/fs/cgroup" ]
+
+VOLUME ["/MERApp/data"]
+
+CMD ["/usr/sbin/init"]
