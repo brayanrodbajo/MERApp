@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, request, render_template, jsonify, redirect
+from flask import Flask, request, render_template, jsonify, redirect, session
 import os, sys, random, datetime, glob, random
 import csv
+
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -249,8 +250,7 @@ data = [{
     },
   ]
 
-global id_session
-id_session=1
+
 global events_fname
 events_fname = ""
 folder_data = "data/"
@@ -277,10 +277,17 @@ def choose_song(sti = 'A'):
     print music_file_path
     return "/" + folder + "/" + music_file_path
 
+def write_id():
+    id_session = session['id_session']
+    with open(id_file, 'a') as file:global events_fname
+        events_fname = folder_data + 'events' + str(id_session) + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S").replace(" ", "") + '.csv'
+        file.write("\n" + str(id_session) +", " + events_fname)
+
 
 @app.route('/',  methods = ['GET', 'POST'])
 def play():
     if request.method == 'GET':
+        session.pop('id_session', None)
         return render_template('play.html')
     if request.method == 'POST':
         return redirect('/index')
@@ -289,26 +296,22 @@ def play():
 def index():
     if request.method == 'GET':
         print 'Entro en GET'
-        global id_session
-        id_session = get_id()
+        if not 'id_session' in session:
+            id_session = get_id()
+            session['id_session'] = id_session
+        write_id()
         print id_session
         music_path = choose_song('A')
         (prof_name, prof) = define_prof()
         return render_template('index.html', data= data, id=id_session, music_path=music_path, prof_name=prof_name, prof=prof)
     if request.method == 'POST':
-        print 'Entro en POST'
-        write_id() # the events file has been created
+        print 'Entro en POST'# the events file has been created
         return redirect('/loading')
         # return redirect("https://docs.google.com/forms/d/e/1FAIpQLSdFDa7emxPgC0sO3D0U7Rc_i3rrrKu7rhjkTVMkmGjbKfbqNw/viewform?usp=sf_link")
 
-def write_id():
-    with open(id_file, 'a') as file:
-        file.write("\n" + str(id_session) +", " + events_fname)
-
 @app.route('/events',  methods=['POST'])
 def load_events():
-    global events_fname
-    events_fname = folder_data + 'events' + str(id_session) + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S").replace(" ", "") + '.csv'
+    id_session = session['id_session']
     data = request.get_json()
     events = data['events']
     exists = False #if the file for this ID exists
@@ -325,6 +328,7 @@ def load_events():
 
 @app.route('/loading',  methods=['GET', 'POST'])
 def joke_loading():
+    id_session = session['id_session']
     if request.method == 'GET':
         return render_template('jokeLoading.html', id=id_session)
     if request.method == 'POST':
@@ -332,6 +336,7 @@ def joke_loading():
 
 @app.route('/satisfaction',  methods=['GET', 'POST'])
 def satisfaction():
+    id_session = session['id_session']
     if request.method == 'GET':
         return render_template('satisfaction.html', id=id_session, path='/static/images/satisfaction/man1/')
     if request.method == 'POST':
@@ -339,11 +344,15 @@ def satisfaction():
 
 @app.route('/survey',  methods=['GET', 'POST'])
 def survey():
+    id_session = session['id_session']
     if request.method == 'GET':
         return render_template('survey.html', id=id_session)
     if request.method == 'POST':
         return redirect('/')
 
+
+# set the secret key.  keep this really secret:
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, use_reloader=True)
