@@ -279,8 +279,8 @@ def choose_song(sti = 'A'):
 
 def write_id():
     id_session = session['id_session']
-    with open(id_file, 'a') as file:global events_fname
-        events_fname = folder_data + 'events' + str(id_session) + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S").replace(" ", "") + '.csv'
+    events_fname = folder_data + 'events' + str(id_session) + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S").replace(" ", "") + '.csv'
+    with open(id_file, 'a') as file:
         file.write("\n" + str(id_session) +", " + events_fname)
 
 
