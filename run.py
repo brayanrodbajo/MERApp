@@ -251,8 +251,6 @@ data = [{
   ]
 
 
-global events_fname
-events_fname = ""
 folder_data = "data/"
 global id_file
 id_file = folder_data+"id_file.csv"
@@ -280,6 +278,7 @@ def choose_song(sti = 'A'):
 def write_id():
     id_session = session['id_session']
     events_fname = folder_data + 'events' + str(id_session) + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S").replace(" ", "") + '.csv'
+    session['events_fname'] = events_fname
     with open(id_file, 'a') as file:
         file.write("\n" + str(id_session) +", " + events_fname)
 
@@ -299,6 +298,7 @@ def index():
         if not 'id_session' in session:
             id_session = get_id()
             session['id_session'] = id_session
+	    id_session = session['id_session']
         write_id()
         print id_session
         music_path = choose_song('A')
@@ -314,6 +314,7 @@ def load_events():
     id_session = session['id_session']
     data = request.get_json()
     events = data['events']
+    events_fname =  session['events_fname']
     exists = False #if the file for this ID exists
     for file in glob.glob(folder_data+'events'+str(id_session)+'*'): #if a file with this id_session exists replace the file name with the existing one
         events_fname=file
