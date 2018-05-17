@@ -8,7 +8,7 @@ function scrollFunction(){
     var curTime = d.getTime();
     var secs = parseInt((curTime - iniTime)/1000);
     var top = $(document).scrollTop();
-    events.push([IDSession, "Scroll", top, secs]);
+    events.push([IDSession, "Scroll", top, secs, d]);
 }
 
 window.onscroll = scrollFunction;
@@ -122,12 +122,12 @@ $('.trans').click(function() {
 		idSelectedHotel = 'none';
         disableHotels();
 		enableHotels(objCity);
-        events.push([IDSession, "CheckCiudad", idd, secs]);
+        events.push([IDSession, "CheckCiudad", idd, secs, d]);
 	}else{
 		transValue= 0;
 		selectedCity = false;
         disableHotels();
-        events.push([IDSession, "UncheckCiudad", $(this).attr('id'), secs]);
+        events.push([IDSession, "UncheckCiudad", $(this).attr('id'), secs, d]);
 	}
     slider.value = "1";
     output.innerHTML = "1";//when clicks a city the days go back to 1
@@ -144,11 +144,11 @@ $('.hotel').click(function() {
 		idSelectedHotel = idd;
         var place = parseInt(idd.substring(3, idd.length))-1;
 		hotelValue=$hotelsPrice[place];
-        events.push([IDSession, "CheckHotel", $(this).attr('id'), secs]);
+        events.push([IDSession, "CheckHotel", $(this).attr('id'), secs, d]);
 	}else{
 		hotelValue= 0;
 		idSelectedHotel = 'none';
-        events.push([IDSession, "UncheckHotel", $(this).attr('id'), secs]);
+        events.push([IDSession, "UncheckHotel", $(this).attr('id'), secs, d]);
 	}
     slider.value = "1";
     output.innerHTML = "1"; //when clicks a hotel the days go back to 1
@@ -183,7 +183,7 @@ slider.oninput = function() {
     currentDays = parseInt(this.value);
     writeTotal();
     changeStep();
-    events.push([IDSession, "ChangeDias", currentDays, secs]);
+    events.push([IDSession, "ChangeDias", currentDays, secs, d]);
 };
 
 function changeStep() {
@@ -197,7 +197,7 @@ $('#food').on('input', function() {
     var secs = parseInt((curTime - iniTime)/1000);
     foodValue = parseInt($(this).val());
     writeTotal();
-    events.push([IDSession, "ChangeComida", $(this).val(), secs]);
+    events.push([IDSession, "ChangeComida", $(this).val(), secs, d]);
 });
 
 
@@ -224,6 +224,7 @@ $("input:checkbox").on('click', function() {
 /****** SEND DATA **********/
 
 function sendData(){
+
     $.ajax({
         url: "/events",
         type: "POST",
@@ -264,14 +265,19 @@ setTimeout(function(){
 
 
 function validate(){
+    var d = new Date();
+    var curTime = d.getTime();
+    var secs = parseInt((curTime - iniTime)/1000);
     var total = transValue+hotelTotalValue+foodValue;
     var presu = presuIni - total ;
     if(presu<0) {
         alert("¡Error! Ha sobrepasado el presupuesto");
+        events.push([IDSession, "ERRORPresupuesto", 0, secs, d]);
         return false;
     }else{
         if(idSelectedHotel==='none' || !selectedCity){
             alert("¡Error! No ha seleccionado ciudad y/o hotel");
+            events.push([IDSession, "ERRORSeleccion", 0, secs, d ]);
             return false;
         }else{
             var idd = parseInt(idSelectedHotel.split('b')[1])-1; //the string from the letter 'b' is the position
@@ -284,8 +290,10 @@ function validate(){
             console.log(profData);
             if(profData !=profName){
                 alert("Inténtelo de nuevo, no ha acertado en su respuesta");
+                events.push([IDSession, "ERRORRespuesta", 0, secs, d ]);
                 return false;
             }else{
+                events.push([IDSession, "ACERTO", 0, secs, d]);
                 return true;
             }
         }

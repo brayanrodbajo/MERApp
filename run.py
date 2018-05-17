@@ -271,13 +271,14 @@ def get_id(): #sums 1 to the last id_session in id_file
 
 def choose_song(sti = 'A'):
     folder = "static/songs/" + sti
+    session['sti'] = sti
     music_file_path = random.choice(os.listdir(folder))
     print music_file_path
     return "/" + folder + "/" + music_file_path
 
 def write_id():
     id_session = session['id_session']
-    events_fname = folder_data + 'events' + str(id_session) + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S").replace(" ", "") + '.csv'
+    events_fname = folder_data + 'events' + str(id_session)+'-' + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S").replace(" ", "") + '.csv'
     session['events_fname'] = events_fname
     with open(id_file, 'a') as file:
         file.write("\n" + str(id_session) +", " + events_fname)
@@ -298,11 +299,12 @@ def index():
         if not 'id_session' in session:
             id_session = get_id()
             session['id_session'] = id_session
-	    id_session = session['id_session']
+        id_session = session['id_session']
         write_id()
         print id_session
         music_path = choose_song('A')
         (prof_name, prof) = define_prof()
+        session['prof_name'] = prof_name
         return render_template('index.html', data= data, id=id_session, music_path=music_path, prof_name=prof_name, prof=prof)
     if request.method == 'POST':
         print 'Entro en POST'# the events file has been created
@@ -320,8 +322,9 @@ def load_events():
         events_fname=file
         exists= True
     if not exists:
-        header = [["IDSession", "TipoEvento", "Valor", "Tiempo(s)"]]
-        events = header + events
+        sti = [[session['sti'], session['prof_name']]]
+        header = [["IDSession", "TipoEvento", "Valor", "Tiempo(s)", "Hora"]]
+        events = sti + header + events
     with open(events_fname, 'a') as f:
         writer = csv.writer(f)
         writer.writerows(events)
