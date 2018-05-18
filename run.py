@@ -288,6 +288,7 @@ def write_id():
 def play():
     if request.method == 'GET':
         session.pop('id_session', None)
+        session.pop('prof_name', None)
         return render_template('play.html')
     if request.method == 'POST':
         return redirect('/index')
@@ -302,9 +303,16 @@ def index():
         id_session = session['id_session']
         write_id()
         print id_session
-        music_path = choose_song('A')
-        (prof_name, prof) = define_prof()
-        session['prof_name'] = prof_name
+        if not 'music_path' in session:
+            music_path = choose_song('AC')
+            session['music_path'] = music_path
+        else:
+            music_path = session['music_path']
+        if not 'prof_name' in session:
+            (prof_name, prof) = define_prof()
+            session['prof_name'] = prof_name
+        else:
+            prof_name = session['prof_name']
         return render_template('index.html', data= data, id=id_session, music_path=music_path, prof_name=prof_name, prof=prof)
     if request.method == 'POST':
         print 'Entro en POST'# the events file has been created
