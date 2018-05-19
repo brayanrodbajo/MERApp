@@ -289,6 +289,7 @@ def play():
     if request.method == 'GET':
         session.pop('id_session', None)
         session.pop('prof_name', None)
+        session.pop('music_path', None)
         return render_template('play.html')
     if request.method == 'POST':
         return redirect('/index')
@@ -304,7 +305,7 @@ def index():
         write_id()
         print id_session
         if not 'music_path' in session:
-            music_path = choose_song('AC')
+            music_path = choose_song('D')
             session['music_path'] = music_path
         else:
             music_path = session['music_path']
