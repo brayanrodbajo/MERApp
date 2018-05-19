@@ -4,6 +4,7 @@
     <list default="true" id="2cb9a3dc-dbca-447e-bad6-7cb573ae903e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/run.py" afterPath="$PROJECT_DIR$/run.py" />
+      <change beforePath="$PROJECT_DIR$/templates/survey.html" afterPath="$PROJECT_DIR$/templates/survey.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="313" column="13" lean-forward="false" selection-start-line="313" selection-start-column="13" selection-end-line="313" selection-end-column="13" />
+            <state relative-caret-position="18">
+              <caret line="310" column="32" lean-forward="false" selection-start-line="310" selection-start-column="32" selection-end-line="310" selection-end-column="32" />
               <folding>
                 <element signature="e#234#9212#0" expanded="false" />
                 <element signature="e#235#2517#0" expanded="false" />
@@ -36,7 +37,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2844">
+            <state relative-caret-position="396">
               <caret line="158" column="55" lean-forward="false" selection-start-line="158" selection-start-column="55" selection-end-line="158" selection-end-column="55" />
               <folding />
             </state>
@@ -46,7 +47,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3312">
+            <state relative-caret-position="18">
               <caret line="184" column="17" lean-forward="false" selection-start-line="184" selection-start-column="17" selection-end-line="184" selection-end-column="17" />
               <folding />
             </state>
@@ -83,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="survey.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="survey.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/survey.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="20" selection-end-column="13" />
+            <state relative-caret-position="270">
+              <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -160,12 +161,12 @@
         <option value="$PROJECT_DIR$/static/css/index.css" />
         <option value="$PROJECT_DIR$/templates/play.html" />
         <option value="$PROJECT_DIR$/static/css/play.css" />
-        <option value="$PROJECT_DIR$/templates/survey.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/satisfaction.html" />
         <option value="$PROJECT_DIR$/templates/jokeLoading.html" />
         <option value="$PROJECT_DIR$/static/js/index.js" />
         <option value="$PROJECT_DIR$/run.py" />
+        <option value="$PROJECT_DIR$/templates/survey.html" />
       </list>
     </option>
   </component>
@@ -242,10 +243,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,6 +275,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -396,7 +397,8 @@
       <workItem from="1526426236680" duration="2837000" />
       <workItem from="1526575001304" duration="1223000" />
       <workItem from="1526581542978" duration="4012000" />
-      <workItem from="1526680630745" duration="407000" />
+      <workItem from="1526680630745" duration="685000" />
+      <workItem from="1526692295405" duration="3146000" />
     </task>
     <task id="LOCAL-00001" summary="take secs in Integer for every event.">
       <created>1509038636537</created>
@@ -528,7 +530,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266725000" />
+    <option name="totallyTimeSpent" value="270149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1303" height="780" extended-state="6" />
@@ -996,34 +998,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/survey.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2844">
-          <caret line="158" column="55" lean-forward="false" selection-start-line="158" selection-start-column="55" selection-end-line="158" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3312">
-          <caret line="184" column="17" lean-forward="false" selection-start-line="184" selection-start-column="17" selection-end-line="184" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="313" column="13" lean-forward="false" selection-start-line="313" selection-start-column="13" selection-end-line="313" selection-end-column="13" />
+        <state relative-caret-position="18">
+          <caret line="310" column="32" lean-forward="false" selection-start-line="310" selection-start-column="32" selection-end-line="310" selection-end-column="32" />
           <folding>
             <element signature="e#234#9212#0" expanded="false" />
             <element signature="e#235#2517#0" expanded="false" />
@@ -1031,6 +1009,30 @@
             <element signature="e#4748#6966#0" expanded="false" />
             <element signature="e#6973#9207#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="184" column="17" lean-forward="false" selection-start-line="184" selection-start-column="17" selection-end-line="184" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="158" column="55" lean-forward="false" selection-start-line="158" selection-start-column="55" selection-end-line="158" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/survey.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

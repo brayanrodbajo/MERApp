@@ -1,6 +1,7 @@
 Output*.txt
 events*
 id_file.csv
+data/*
 static/images/satisfaction/*
 static/songs/*
 .idea/*
