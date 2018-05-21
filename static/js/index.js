@@ -7,7 +7,7 @@ function scrollFunction(){
     var d = new Date();
     var curTime = d.getTime();
     var secs = parseInt((curTime - iniTime)/1000);
-    var top = $(document).scrollTop();
+    var top = parseInt($(document).scrollTop(), 10);
     events.push([IDSession, "Scroll", top, secs, d]);
 }
 
