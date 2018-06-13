@@ -305,7 +305,14 @@ def index():
         write_id()
         print id_session
         if not 'music_path' in session:
-            music_path = choose_song('D')
+            if int(id_session)%3==2:
+                sti = 'A'
+            elif int(id_session)%3==1:
+                sti = 'AC'
+            else:
+                sti = 'D'
+            print sti
+            music_path = choose_song(sti)
             session['music_path'] = music_path
         else:
             music_path = session['music_path']
