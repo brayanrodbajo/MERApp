@@ -322,7 +322,7 @@ def index():
             session['prof'] = prof
         else:
             prof_name = session['prof_name']
-            prof = session['profd']
+            prof = session['prof']
         return render_template('index.html', data= data, id=id_session, music_path=music_path, prof_name=prof_name, prof=prof)
     if request.method == 'POST':
         print 'Entro en POST'# the events file has been created
