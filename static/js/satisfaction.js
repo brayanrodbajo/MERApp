@@ -9,7 +9,7 @@ function showVal(newVal){
     events.push([IDSession, "ChangeSatisfactionFace", newVal, secs, d]);
 }
 
-
+$("#valR").slider('value',50);
 
 /****** SEND DATA **********/
 
