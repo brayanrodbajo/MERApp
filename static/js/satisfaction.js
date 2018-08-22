@@ -8,8 +8,10 @@ function showVal(newVal){
     document.getElementById("img-video").src = path+newVal+ ".png";
     events.push([IDSession, "ChangeSatisfactionFace", newVal, secs, d]);
 }
-
-
+var i;
+for(i=60;i>=1;i--) {
+    document.getElementById("valR").value = ""+i;
+}
 
 /****** SEND DATA **********/
 
