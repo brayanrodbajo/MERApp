@@ -340,7 +340,7 @@ def load_events():
         events_fname=file
         exists= True
     if not exists:
-        sti = [[session['sti'], session['prof_name']]]
+        sti = [[session['sti'], session['prof_name'], session['music_path']]]
         header = [["IDSession", "TipoEvento", "Valor", "Tiempo(s)", "Hora"]]
         events = sti + header + events
     with open(events_fname, 'a') as f:
