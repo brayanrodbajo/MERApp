@@ -1,4 +1,12 @@
 var events = [];
+var images = new Array()
+var i;
+for (i = 1; i <=60; i++) {
+    console.log("for images "+i);
+    images[i] = new Image();
+    images[i].src = path+i+".png";
+}
+
 var val = document.getElementById("valR").value;
 document.getElementById("img-video").src = "/static/images/satisfaction/man1/" + val + ".png";
 function showVal(newVal){
@@ -6,13 +14,9 @@ function showVal(newVal){
     var curTime = d.getTime();
     var secs = parseInt((curTime - iniTime)/1000);
     document.getElementById("img-video").src = path+newVal+ ".png";
+    console.log("new val with "+newVal);
     events.push([IDSession, "ChangeSatisfactionFace", newVal, secs, d]);
 }
-var i;
-for(i=60;i>=1;i--) {
-    document.getElementById("valR").value = ""+i;
-}
-
 /****** SEND DATA **********/
 
 function sendData(){
