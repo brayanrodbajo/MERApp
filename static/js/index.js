@@ -261,7 +261,7 @@ function checkSecond(sec) {
 
 setTimeout(function(){
     $("#timeoutModal").modal('show');
-},900000);
+},90000);
 
 
 function validate(){
@@ -294,6 +294,7 @@ function validate(){
                 return false;
             }else{
                 events.push([IDSession, "ACERTO", 0, secs, d]);
+		sendData();
                 return true;
             }
         }

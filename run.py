@@ -336,7 +336,7 @@ def load_events():
     events = data['events']
     events_fname =  session['events_fname']
     exists = False #if the file for this ID exists
-    for file in glob.glob(folder_data+'events'+str(id_session)+'*'): #if a file with this id_session exists replace the file name with the existing one
+    for file in glob.glob(events_fname): #if a file with this id_session exists replace the file name with the existing one
         events_fname=file
         exists= True
     if not exists:
@@ -377,4 +377,4 @@ def survey():
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, use_reloader=True)
+    app.run(host='127.0.0.1', debug=True, use_reloader=True)
