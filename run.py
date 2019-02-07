@@ -290,6 +290,7 @@ def play():
         session.pop('id_session', None)
         session.pop('prof_name', None)
         session.pop('music_path', None)
+        session.pop('events_fname', None)
         return render_template('play.html')
     if request.method == 'POST':
         return redirect('/index')
