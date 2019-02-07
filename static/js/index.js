@@ -261,7 +261,7 @@ function checkSecond(sec) {
 
 setTimeout(function(){
     $("#timeoutModal").modal('show');
-},90000);
+},900000);
 
 
 function validate(){
