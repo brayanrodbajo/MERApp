@@ -270,11 +270,15 @@ def get_id(): #sums 1 to the last id_session in id_file
     return id_session
 
 def choose_song(sti = 'A'):
-    folder = "static/songs/" + sti
     session['sti'] = sti
-    music_file_path = random.choice(os.listdir(folder))
-    print music_file_path
-    return "/" + folder + "/" + music_file_path
+    if sti == '0':
+        full_path='0'
+    else:
+        folder = "static/songs/" + sti
+        music_file_path = random.choice(os.listdir(folder))
+        full_path = "/" + folder + "/" + music_file_path
+        print music_file_path
+    return full_path
 
 def write_id():
     id_session = session['id_session']
@@ -306,12 +310,15 @@ def index():
         write_id()
         print id_session
         if not 'music_path' in session:
-            if int(id_session)%3==2:
+            resi = int(id_session)%4
+            if resi==2:
                 sti = 'A'
-            elif int(id_session)%3==1:
+            elif resi==1:
                 sti = 'AC'
-            else:
+            elif resi==0:
                 sti = 'D'
+            elif resi==3:
+                sti = '0'
             print sti
             music_path = choose_song(sti)
             session['music_path'] = music_path

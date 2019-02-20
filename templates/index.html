@@ -34,9 +34,11 @@
 </style>
 </head>
 <body >
-<audio src="{{music_path}}" loop autoplay>
-    <p>Su navegador no soporta el archivo de audio.</p>
-</audio>
+{% if not music_path =='0' %}
+    <audio src="{{music_path}}" loop autoplay>
+        <p>Su navegador no soporta el archivo de audio.</p>
+    </audio>
+{% endif %}
 <div class="container">
     <h1 class="display-3">Plan de vacaciones</h1>
         <form id="mainform" method="post">
